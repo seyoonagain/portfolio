@@ -1,3 +1,15 @@
+@import url('https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css');
+@font-face {
+  font-family: 'chicago';
+  src: url('./fonts/Chicago.ttf') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'geneva';
+  src: url('./fonts/Geneva\ 9.2.ttf') format('truetype');
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
