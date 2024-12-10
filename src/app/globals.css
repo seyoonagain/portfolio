@@ -1,12 +1,12 @@
 @import url('https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css');
 @font-face {
   font-family: 'chicago';
-  src: url('./fonts/Chicago.ttf') format('truetype');
+  src: url('@/fonts/Chicago.ttf') format('truetype');
   font-style: normal;
 }
 @font-face {
   font-family: 'geneva';
-  src: url('./fonts/Geneva\ 9.2.ttf') format('truetype');
+  src: url('@/fonts/Geneva\ 9.2.ttf') format('truetype');
   font-style: normal;
 }
 
@@ -18,20 +18,10 @@
   @apply box-border m-0 p-0;
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-zinc-300;
+  background-image: radial-gradient(circle, #000000 0.5px, transparent 0.5px),
+    radial-gradient(circle, #000000 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+  background-position: 0 0, 1.5px 1.5px;
 }

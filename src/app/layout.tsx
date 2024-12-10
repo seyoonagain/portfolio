@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import MenuBar from '@/components/MenuBar/MenuBar';
 
 export const metadata: Metadata = {
   title: '정세윤 | 프론트엔드 개발자',
@@ -13,7 +14,10 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        <MenuBar />
+        {children}
+      </body>
     </html>
   );
 };
