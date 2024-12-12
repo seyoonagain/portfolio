@@ -16,7 +16,9 @@ const RootLayout = ({
     <html lang='en'>
       <body>
         <MenuBar />
-        {children}
+        <section className='w-full mt-7 flex p-5 bg-[url(/images/bg.png)]'>
+          {children}
+        </section>
       </body>
     </html>
   );
