@@ -1,17 +1,17 @@
 @import url('https://cdn.jsdelivr.net/npm/galmuri/dist/galmuri.css');
 @font-face {
   font-family: 'chicago';
-  src: url('@/fonts/Chicago.ttf') format('truetype');
+  src: url('/fonts/Chicago.ttf') format('truetype');
   font-style: normal;
 }
 @font-face {
   font-family: 'geneva';
-  src: url('@/fonts/Geneva\ 9.2.ttf') format('truetype');
+  src: url('/fonts/Geneva.ttf') format('truetype');
   font-style: normal;
 }
 @font-face {
   font-family: 'monaco';
-  src: url('@/fonts/Monaco\ 9.ttf') format('truetype');
+  src: url('/fonts/Monaco.ttf') format('truetype');
   font-style: normal;
 }
 

@@ -24,7 +24,7 @@ const Icon = ({ url, description, top, left, isClicked }: IconProps) => {
         draggable='false'
       />
       <div
-        className={`font-geneva font-thin text-xl px-1 flex items-center h-4 ${
+        className={`font-geneva text-2xl px-1 flex items-center h-4 ${
           isClicked ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-950'
         }`}
       >
