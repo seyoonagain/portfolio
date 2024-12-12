@@ -16,43 +16,34 @@ const Home = () => {
     setClickedIcon('');
   };
   return (
-    <section className='grid grid-cols-2 gap-7'>
-      <div
+    <section>
+      <Icon
+        url={aboutMe}
+        description='About me'
+        top={48}
+        left={20}
+        isClicked={clickedIcon === 'aboutMe'}
         onDoubleClick={(e) => handleDbClick(e, 'aboutMe')}
         onMouseDown={() => setClickedIcon('aboutMe')}
-      >
-        <Icon
-          url={aboutMe}
-          description='About me'
-          top={48}
-          left={20}
-          isClicked={clickedIcon === 'aboutMe'}
-        />
-      </div>
-      <div
+      />
+      <Icon
+        url={contact}
+        description='Contact'
+        top={48}
+        left={120}
+        isClicked={clickedIcon === 'contact'}
         onDoubleClick={(e) => handleDbClick(e, 'contact')}
         onMouseDown={() => setClickedIcon('contact')}
-      >
-        <Icon
-          url={contact}
-          description='Contact'
-          top={48}
-          left={120}
-          isClicked={clickedIcon === 'contact'}
-        />
-      </div>
-      <div
+      />
+      <Icon
+        url={projects}
+        description='Projects'
+        top={154}
+        left={20}
+        isClicked={clickedIcon === 'projects'}
         onDoubleClick={(e) => handleDbClick(e, 'projects')}
         onMouseDown={() => setClickedIcon('projects')}
-      >
-        <Icon
-          url={projects}
-          description='Projects'
-          top={154}
-          left={20}
-          isClicked={clickedIcon === 'projects'}
-        />
-      </div>
+      />
     </section>
   );
 };

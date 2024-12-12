@@ -6,4 +6,6 @@ export interface IconProps {
   top: number;
   left: number;
   isClicked: boolean;
+  onDoubleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  onMouseDown: () => void;
 }
