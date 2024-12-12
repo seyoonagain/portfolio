@@ -11,6 +11,7 @@ export default {
       fontFamily: {
         chicago: ['chicago'],
         geneva: ['geneva'],
+        monaco: ['monaco'],
         galmuri7: ['Galmuri7'],
         galmuri9: ['Galmuri9'],
         galmuri11: ['Galmuri11'],
