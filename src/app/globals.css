@@ -26,3 +26,13 @@
 body {
   @apply w-screen h-screen flex;
 }
+
+.scrollable {
+  overflow: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
