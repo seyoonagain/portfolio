@@ -4,8 +4,8 @@ import { IconProps } from '@/types/props';
 import Image from 'next/image';
 
 const Icon = ({
-  url,
-  description,
+  title,
+  file,
   top,
   left,
   isClicked,
@@ -26,8 +26,8 @@ const Icon = ({
     >
       <Image
         className={isClicked ? 'invert' : ''}
-        src={url}
-        alt={description}
+        src={file}
+        alt={title}
         width={48}
         quality={100}
         unoptimized={true}
@@ -38,7 +38,7 @@ const Icon = ({
           isClicked ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-950'
         }`}
       >
-        <span className='text-nowrap'>{description}</span>
+        <span className='text-nowrap'>{title}</span>
       </div>
     </div>
   );
