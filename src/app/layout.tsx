@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import MenuBar from '@/components/MenuBar/MenuBar';
-import WindowContextProvider from '@/contexts/useWindowZIndexContext';
+import WindowZIndexContextProvider from '@/contexts/useWindowZIndexContext';
 import IconZIndexContextProvider from '@/contexts/useIconZIndexContext';
+import WindowContextProvider from '@/contexts/useWindowContext';
 
 export const metadata: Metadata = {
   title: '정세윤 | 프론트엔드 개발자',
@@ -20,7 +21,9 @@ const RootLayout = ({
         <MenuBar />
         <section className='w-full mt-7 flex p-5 bg-[url(/images/bg.png)]'>
           <WindowContextProvider>
-            <IconZIndexContextProvider>{children}</IconZIndexContextProvider>
+            <WindowZIndexContextProvider>
+              <IconZIndexContextProvider>{children}</IconZIndexContextProvider>
+            </WindowZIndexContextProvider>
           </WindowContextProvider>
         </section>
       </body>

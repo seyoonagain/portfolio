@@ -1,28 +1,19 @@
 'use client';
 
 import Icon from '@/ui/Icon';
-import { useState } from 'react';
 import WindowFrame from '@/components/WindowFrame/WindowFrame';
 import { WINDOW_CONTENT } from '@/lib/constants/window';
 import { ICON_INFO } from '@/lib/constants/icon';
 import { Title } from '@/types/type';
 import { useIconZIndexContext } from '@/contexts/useIconZIndexContext';
+import { useWindowContext } from '@/contexts/useWindowContext';
 
 const Home = () => {
   const { setActiveIcon } = useIconZIndexContext();
-  const [showWindows, setShowWindows] = useState<Title[]>([]);
+  const { windowsOpen, openWindow } = useWindowContext();
 
-  const handleDbClick = (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    title: Title
-  ) => {
-    setShowWindows((prev) => {
-      if (prev.includes(title)) {
-        return [...prev];
-      } else {
-        return [...prev, title];
-      }
-    });
+  const handleDbClick = (title: Title) => {
+    openWindow(title);
     setActiveIcon(null);
   };
 
@@ -35,11 +26,11 @@ const Home = () => {
           title={icon.title}
           top={icon.top}
           left={icon.left}
-          onDoubleClick={(e) => handleDbClick(e, icon.title)}
+          onDoubleClick={() => handleDbClick(icon.title)}
         />
       ))}
 
-      {showWindows.map((title) => {
+      {windowsOpen.map((title) => {
         const content = WINDOW_CONTENT[title];
         console.log(content);
         return (
