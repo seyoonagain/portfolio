@@ -60,7 +60,7 @@ export const useWindowZIndexContext = (): WindowZIndexContextType => {
   const context = useContext(WindowZIndexContext);
   if (!context) {
     throw new Error(
-      'useWindowZIndexContext must be used within a WindowProvider'
+      'useWindowZIndexContext must be used within a WindowZIndexContextProvider'
     );
   }
   return context;

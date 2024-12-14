@@ -73,7 +73,7 @@ export const useIconZIndexContext = (): IconZIndexContextType => {
   const context = useContext(IconZIndexContext);
   if (!context) {
     throw new Error(
-      'useIconZIndexContext must be used within a WindowProvider'
+      'useIconZIndexContext must be used within a IconZIndexContextProvider'
     );
   }
   return context;

@@ -50,7 +50,9 @@ export default WindowContextProvider;
 export const useWindowContext = (): WindowContextType => {
   const context = useContext(WindowContext);
   if (!context) {
-    throw new Error('useWindowContext must be used within a WindowProvider');
+    throw new Error(
+      'useWindowContext must be used within a WindowContextProvider'
+    );
   }
   return context;
 };
