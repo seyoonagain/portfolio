@@ -1,10 +1,11 @@
 'use client';
 
+import { Title } from '@/types/type';
 import React, { createContext, ReactNode, useContext, useState } from 'react';
 
 interface WindowZIndexContextType {
-  activateWindow: (title: string) => void;
-  getZIndex: (title: string) => void;
+  activateWindow: (title: Title) => void;
+  getZIndex: (title: Title) => void;
 }
 
 interface WindowProviderProps {
@@ -22,15 +23,17 @@ const MIN_Z_INDEX = 10;
 const WindowZIndexContextProvider: React.FC<WindowProviderProps> = ({
   children,
 }) => {
-  const [activeWindow, setActiveWindow] = useState<string | null>(null);
-  const [prevActiveWindow, setPrevActiveWindow] = useState<string | null>(null);
-  const activateWindow = (title: string) => {
+  const [activeWindow, setActiveWindow] = useState<Title | null>(null);
+  const [prevActiveWindow, setPrevActiveWindow] = useState<Title | null>(null);
+
+  const activateWindow = (title: Title) => {
     setActiveWindow((prev) => {
       setPrevActiveWindow(prev);
       return title;
     });
   };
-  const getZIndex = (title: string) => {
+
+  const getZIndex = (title: Title) => {
     if (activeWindow === title) {
       return MAX_Z_INDEX;
     } else if (prevActiveWindow === title) {

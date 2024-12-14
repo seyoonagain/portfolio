@@ -5,14 +5,15 @@ import { useState } from 'react';
 import WindowFrame from '@/components/WindowFrame/WindowFrame';
 import { WINDOW_CONTENT } from '@/lib/constants/window';
 import { ICON_INFO } from '@/lib/constants/icon';
+import { Title } from '@/types/type';
 
 const Home = () => {
-  const [clickedIcon, setClickedIcon] = useState<string>('');
-  const [showWindows, setShowWindows] = useState<string[]>([]);
+  const [clickedIcon, setClickedIcon] = useState<Title | null>(null);
+  const [showWindows, setShowWindows] = useState<Title[]>([]);
 
   const handleDbClick = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-    title: string
+    title: Title
   ) => {
     setShowWindows((prev) => {
       if (prev.includes(title)) {
@@ -21,7 +22,7 @@ const Home = () => {
         return [...prev, title];
       }
     });
-    setClickedIcon('');
+    setClickedIcon(null);
   };
 
   return (
@@ -41,6 +42,7 @@ const Home = () => {
 
       {showWindows.map((title) => {
         const content = WINDOW_CONTENT[title];
+        console.log(content);
         return (
           content && (
             <WindowFrame
