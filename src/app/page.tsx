@@ -6,9 +6,10 @@ import WindowFrame from '@/components/WindowFrame/WindowFrame';
 import { WINDOW_CONTENT } from '@/lib/constants/window';
 import { ICON_INFO } from '@/lib/constants/icon';
 import { Title } from '@/types/type';
+import { useIconZIndexContext } from '@/contexts/useIconZIndexContext';
 
 const Home = () => {
-  const [clickedIcon, setClickedIcon] = useState<Title | null>(null);
+  const { setActiveIcon } = useIconZIndexContext();
   const [showWindows, setShowWindows] = useState<Title[]>([]);
 
   const handleDbClick = (
@@ -22,7 +23,7 @@ const Home = () => {
         return [...prev, title];
       }
     });
-    setClickedIcon(null);
+    setActiveIcon(null);
   };
 
   return (
@@ -34,9 +35,7 @@ const Home = () => {
           title={icon.title}
           top={icon.top}
           left={icon.left}
-          isClicked={clickedIcon === icon.title}
           onDoubleClick={(e) => handleDbClick(e, icon.title)}
-          onMouseDown={() => setClickedIcon(icon.title)}
         />
       ))}
 

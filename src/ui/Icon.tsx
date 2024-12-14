@@ -1,31 +1,27 @@
 'use client';
+import { useIconZIndexContext } from '@/contexts/useIconZIndexContext';
 import useDraggable from '@/hooks/useDraggable';
 import { IconProps } from '@/types/props';
 import Image from 'next/image';
 
-const Icon = ({
-  title,
-  file,
-  top,
-  left,
-  isClicked,
-  onDoubleClick,
-  onMouseDown,
-}: IconProps) => {
+const Icon = ({ title, file, top, left, onDoubleClick }: IconProps) => {
   const { elRef } = useDraggable();
+  const { activateIcon, isIconClicked, getZIndex } = useIconZIndexContext();
+
   return (
     <div
       ref={elRef}
       onDoubleClick={onDoubleClick}
-      onMouseDown={onMouseDown}
+      onMouseDown={() => activateIcon(title)}
       className='absolute flex flex-col items-center cursor-pointer'
       style={{
         top: `${top}px`,
         left: `${left}px`,
+        zIndex: `${getZIndex(title)}`,
       }}
     >
       <Image
-        className={isClicked ? 'invert' : ''}
+        className={isIconClicked(title) ? 'invert' : ''}
         src={file}
         alt={title}
         width={48}
@@ -35,7 +31,9 @@ const Icon = ({
       />
       <div
         className={`font-geneva text-2xl px-1 flex items-center h-4 ${
-          isClicked ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-950'
+          isIconClicked(title)
+            ? 'bg-zinc-950 text-white'
+            : 'bg-white text-zinc-950'
         }`}
       >
         <span className='text-nowrap'>{title}</span>

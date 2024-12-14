@@ -3,17 +3,15 @@ import { ComponentType, RefObject } from 'react';
 import { Title } from './type';
 
 export interface IconProps {
-  title: string;
+  title: Title;
   file: StaticImageData;
   top: number;
   left: number;
-  isClicked: boolean;
   onDoubleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
-  onMouseDown: () => void;
 }
 
 export interface TitleBarProps {
-  title: string;
+  title: Title;
   width: number;
   ref: RefObject<HTMLDivElement | null>;
 }
