@@ -23,7 +23,7 @@ const WindowFrame = ({
         zIndex: `${getZIndex(title)}`,
       }}
     >
-      <TitleBar title='About Me' width={width} ref={grabRef} />
+      <TitleBar title={title} width={width} ref={grabRef} />
       <Content />
     </div>
   );
