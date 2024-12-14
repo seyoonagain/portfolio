@@ -32,6 +32,7 @@ const useDraggable = (): UseDraggableReturn => {
     const onMouseDown = (e: MouseEvent) => {
       offsetX = e.clientX - el.getBoundingClientRect().left;
       offsetY = e.clientY - el.getBoundingClientRect().top;
+
       document.addEventListener('mousemove', dragCalculator);
       document.addEventListener(
         'mouseup',

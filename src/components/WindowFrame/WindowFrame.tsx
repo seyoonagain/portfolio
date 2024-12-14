@@ -12,6 +12,7 @@ const WindowFrame = ({
 }: WindowFrameProps) => {
   const { elRef, grabRef } = useDraggable();
   const { activateWindow, getZIndex } = useWindowZIndexContext();
+
   return (
     <div
       ref={elRef}

@@ -40,6 +40,7 @@ const Clock = () => {
 
     return () => clearInterval(clock);
   }, []);
+
   return (
     <>
       <span className='sm:hidden'>{time}</span>

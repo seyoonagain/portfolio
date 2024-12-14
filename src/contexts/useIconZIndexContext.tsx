@@ -34,12 +34,14 @@ const IconZIndexContextProvider: React.FC<IconProviderProps> = ({
 }) => {
   const [activeIcon, setActiveIcon] = useState<Title | null>(null);
   const [prevActiveIcon, setPrevActiveIcon] = useState<Title | null>(null);
+
   const activateIcon = (title: Title) => {
     setActiveIcon((prev) => {
       setPrevActiveIcon(prev);
       return title;
     });
   };
+
   const getZIndex = (title: Title) => {
     if (activeIcon === title) {
       return MAX_Z_INDEX;
