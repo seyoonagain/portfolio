@@ -1,16 +1,17 @@
 'use client';
-import { useEffect, useState } from 'react';
-import { DAYS, MONTHS } from '../../lib/constants/clock';
 
-const padStart = (num: number): string => {
-  return num.toString().padStart(2, '0');
-};
+import { useCallback, useEffect, useState } from 'react';
+import { DAYS, MONTHS } from '@/lib/constants/clock';
 
 const Clock = () => {
   const [dateAndTime, setDateAndTime] = useState<string>('');
   const [time, setTime] = useState<string>('');
 
-  const setCurrentTimeAndDate = () => {
+  const padStart = (num: number): string => {
+    return num.toString().padStart(2, '0');
+  };
+
+  const setCurrentTimeAndDate = useCallback(() => {
     const now: Date = new Date();
     const day: string = DAYS[now.getDay()];
     const month: string = MONTHS[now.getMonth()];
@@ -29,7 +30,7 @@ const Clock = () => {
       )}`
     );
     setTime(`${padStart(hours)}:${padStart(minutes)}`);
-  };
+  }, []);
 
   useEffect(() => {
     setCurrentTimeAndDate();
@@ -39,7 +40,7 @@ const Clock = () => {
     }, 1000);
 
     return () => clearInterval(clock);
-  }, []);
+  }, [setCurrentTimeAndDate]);
 
   return (
     <>
