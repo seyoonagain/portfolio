@@ -2,6 +2,7 @@
 
 import { useIconZIndexContext } from '@/contexts/useIconZIndexContext';
 import { useWindowContext } from '@/contexts/useWindowContext';
+import { useWindowZIndexContext } from '@/contexts/useWindowZIndexContext';
 import useDraggable from '@/hooks/useDraggable';
 import { IconProps } from '@/types/props';
 import { Title } from '@/types/type';
@@ -12,9 +13,11 @@ const Icon = ({ title, file, top, left }: IconProps) => {
   const { openWindow } = useWindowContext();
   const { setActiveIcon, activateIcon, isIconClicked, getZIndex } =
     useIconZIndexContext();
+  const { activateWindow } = useWindowZIndexContext();
 
   const handleDbClick = (title: Title) => {
     openWindow(title);
+    activateWindow(title);
     setActiveIcon(null);
   };
 
