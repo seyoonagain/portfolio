@@ -7,7 +7,6 @@ export interface IconProps {
   file: StaticImageData;
   top: number;
   left: number;
-  onDoubleClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 export interface TitleBarProps {

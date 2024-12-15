@@ -1,21 +1,13 @@
 'use client';
 
-import Icon from '@/ui/Icon';
+import Icon from '@/components/Icon';
 import WindowFrame from '@/components/WindowFrame/WindowFrame';
 import { WINDOW_CONTENT } from '@/lib/constants/window';
 import { ICON_INFO } from '@/lib/constants/icon';
-import { Title } from '@/types/type';
-import { useIconZIndexContext } from '@/contexts/useIconZIndexContext';
 import { useWindowContext } from '@/contexts/useWindowContext';
 
 const Home = () => {
-  const { setActiveIcon } = useIconZIndexContext();
-  const { windowsOpen, openWindow } = useWindowContext();
-
-  const handleDbClick = (title: Title) => {
-    openWindow(title);
-    setActiveIcon(null);
-  };
+  const { windowsOpen } = useWindowContext();
 
   return (
     <section>
@@ -26,13 +18,10 @@ const Home = () => {
           title={icon.title}
           top={icon.top}
           left={icon.left}
-          onDoubleClick={() => handleDbClick(icon.title)}
         />
       ))}
-
       {windowsOpen.map((title) => {
         const content = WINDOW_CONTENT[title];
-        console.log(content);
         return (
           content && (
             <WindowFrame

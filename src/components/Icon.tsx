@@ -1,17 +1,27 @@
 'use client';
+
 import { useIconZIndexContext } from '@/contexts/useIconZIndexContext';
+import { useWindowContext } from '@/contexts/useWindowContext';
 import useDraggable from '@/hooks/useDraggable';
 import { IconProps } from '@/types/props';
+import { Title } from '@/types/type';
 import Image from 'next/image';
 
-const Icon = ({ title, file, top, left, onDoubleClick }: IconProps) => {
+const Icon = ({ title, file, top, left }: IconProps) => {
   const { elRef } = useDraggable();
-  const { activateIcon, isIconClicked, getZIndex } = useIconZIndexContext();
+  const { openWindow } = useWindowContext();
+  const { setActiveIcon, activateIcon, isIconClicked, getZIndex } =
+    useIconZIndexContext();
+
+  const handleDbClick = (title: Title) => {
+    openWindow(title);
+    setActiveIcon(null);
+  };
 
   return (
     <div
       ref={elRef}
-      onDoubleClick={onDoubleClick}
+      onDoubleClick={() => handleDbClick(title)}
       onMouseDown={() => activateIcon(title)}
       className='absolute flex flex-col items-center cursor-pointer'
       style={{
@@ -21,7 +31,7 @@ const Icon = ({ title, file, top, left, onDoubleClick }: IconProps) => {
       }}
     >
       <Image
-        className={isIconClicked(title) ? 'invert' : ''}
+        className={isIconClicked(title) ? 'invert' : 'invert-0'}
         src={file}
         alt={title}
         width={48}
@@ -32,8 +42,8 @@ const Icon = ({ title, file, top, left, onDoubleClick }: IconProps) => {
       <div
         className={`font-geneva text-2xl px-1 flex items-center h-4 ${
           isIconClicked(title)
-            ? 'bg-zinc-950 text-white'
-            : 'bg-white text-zinc-950'
+            ? 'bg-zinc-950 text-zinc-100'
+            : 'bg-zinc-100 text-zinc-950'
         }`}
       >
         <span className='text-nowrap'>{title}</span>
