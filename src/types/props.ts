@@ -1,6 +1,6 @@
 import { StaticImageData } from 'next/image';
 import { ComponentType, RefObject } from 'react';
-import { Title } from './type';
+import { Contacts, Title } from './type';
 
 export interface IconProps {
   title: Title;
@@ -20,4 +20,9 @@ export interface WindowFrameProps {
   width: number;
   height: number;
   content: ComponentType;
+}
+
+export interface ContactItemProps {
+  label: Contacts;
+  value: string;
 }
