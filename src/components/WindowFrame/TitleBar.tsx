@@ -1,8 +1,17 @@
+import { useClickedContactItemContext } from '@/contexts/useClickedContactItem';
 import { useWindowContext } from '@/contexts/useWindowContext';
 import { TitleBarProps } from '@/types/props';
 
 const TitleBar = ({ title, width, ref }: TitleBarProps) => {
   const { closeWindow } = useWindowContext();
+  const { setClickedContactItem } = useClickedContactItemContext();
+
+  const handleCloseWindow = () => {
+    if (title === 'Contact') {
+      setClickedContactItem(null);
+    }
+    closeWindow(title);
+  };
 
   return (
     <div
@@ -11,7 +20,7 @@ const TitleBar = ({ title, width, ref }: TitleBarProps) => {
       style={{ width: `${width}px` }}
     >
       <div
-        onClick={() => closeWindow(title)}
+        onClick={handleCloseWindow}
         className='size-[15px] bg-white border border-zinc-950 outline outline-2 outline-white cursor-pointer'
       ></div>
       <div className='h-4 bg-white px-1.5 flex items-center absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2'>

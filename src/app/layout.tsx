@@ -4,6 +4,7 @@ import MenuBar from '@/components/MenuBar/MenuBar';
 import WindowZIndexContextProvider from '@/contexts/useWindowZIndexContext';
 import IconZIndexContextProvider from '@/contexts/useIconZIndexContext';
 import WindowContextProvider from '@/contexts/useWindowContext';
+import ClickedContactItemProvider from '@/contexts/useClickedContactItem';
 
 export const metadata: Metadata = {
   title: '정세윤 | 프론트엔드 개발자',
@@ -22,7 +23,11 @@ const RootLayout = ({
         <section className='w-full mt-7 flex p-5 bg-[url(/images/bg.png)]'>
           <WindowContextProvider>
             <WindowZIndexContextProvider>
-              <IconZIndexContextProvider>{children}</IconZIndexContextProvider>
+              <IconZIndexContextProvider>
+                <ClickedContactItemProvider>
+                  {children}
+                </ClickedContactItemProvider>
+              </IconZIndexContextProvider>
             </WindowZIndexContextProvider>
           </WindowContextProvider>
         </section>
