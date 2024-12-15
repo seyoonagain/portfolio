@@ -7,20 +7,20 @@ import { Title } from '@/types/type';
 export const WINDOW_CONTENT: Record<Title, WindowFrameProps> = {
   'About me': {
     title: 'About me',
-    width: 700,
-    height: 700,
+    width: 600,
+    height: 600,
     content: AboutMe,
   },
   Contact: {
     title: 'Contact',
-    width: 500,
-    height: 500,
+    width: 450,
+    height: 164,
     content: Contact,
   },
   Projects: {
     title: 'Projects',
-    width: 700,
-    height: 700,
+    width: 600,
+    height: 600,
     content: Projects,
   },
 } as const;
