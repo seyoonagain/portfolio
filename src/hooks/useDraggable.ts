@@ -30,6 +30,8 @@ const useDraggable = (): UseDraggableReturn => {
     };
 
     const onMouseDown = (e: MouseEvent) => {
+      if ((e.target as HTMLElement).closest('button')) return;
+
       offsetX = e.clientX - el.getBoundingClientRect().left;
       offsetY = e.clientY - el.getBoundingClientRect().top;
 
