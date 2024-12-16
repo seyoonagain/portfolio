@@ -26,4 +26,4 @@ export const WINDOW_CONTENT: Record<Title, WindowFrameProps> = {
 } as const;
 
 export const WINDOW_STYLE =
-  'scrollable z-49 absolute box-content outline outline-zinc-950 bg-white' as const;
+  'scrollable absolute box-content outline outline-zinc-950 bg-white' as const;
