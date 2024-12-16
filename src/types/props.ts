@@ -26,3 +26,8 @@ export interface ContactItemProps {
   label: Contacts;
   value: string;
 }
+
+export interface ButtonProps {
+  text: string;
+  action?: { copy?: () => void; link?: string };
+}
