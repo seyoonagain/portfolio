@@ -1,11 +1,14 @@
 import { useConfirmPopUpContext } from '@/contexts/useConfirmPopUp';
+import { ButtonProps } from '@/types/props';
 
-const Button = ({ text, action }: { text: string; action?: () => void }) => {
+const Button = ({ text, action }: ButtonProps) => {
   const { setConfirmPopUp } = useConfirmPopUpContext();
 
   const handleClick = () => {
-    if (action) {
-      action();
+    if (action && action.copy) {
+      action.copy();
+    } else if (action && action.link) {
+      window.open(action.link, '_blank');
     }
     setConfirmPopUp(null);
   };
