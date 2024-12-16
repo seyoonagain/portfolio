@@ -5,6 +5,7 @@ import WindowZIndexContextProvider from '@/contexts/useWindowZIndexContext';
 import IconZIndexContextProvider from '@/contexts/useIconZIndexContext';
 import WindowContextProvider from '@/contexts/useWindowContext';
 import ClickedContactItemProvider from '@/contexts/useClickedContactItem';
+import ConfirmPopUpProvider from '@/contexts/useConfirmPopUp';
 
 export const metadata: Metadata = {
   title: '정세윤 | 프론트엔드 개발자',
@@ -25,7 +26,7 @@ const RootLayout = ({
             <WindowZIndexContextProvider>
               <IconZIndexContextProvider>
                 <ClickedContactItemProvider>
-                  {children}
+                  <ConfirmPopUpProvider>{children}</ConfirmPopUpProvider>
                 </ClickedContactItemProvider>
               </IconZIndexContextProvider>
             </WindowZIndexContextProvider>

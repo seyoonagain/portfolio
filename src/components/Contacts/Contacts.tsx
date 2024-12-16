@@ -1,13 +1,15 @@
 import { CONTACT_INFO } from '@/lib/constants/contacts';
 import ContactItem from './ContactItem';
 import { useClickedContactItemContext } from '@/contexts/useClickedContactItem';
+import { useConfirmPopUpContext } from '@/contexts/useConfirmPopUp';
 
 const Contact = () => {
   const { setClickedContactItem } = useClickedContactItemContext();
+  const { isPoppedUp } = useConfirmPopUpContext();
 
   return (
     <section
-      className='relative top-6 w-full h-full'
+      className={`w-full h-full ${isPoppedUp && 'pointer-events-none'}`}
       onClick={() => setClickedContactItem(null)}
     >
       <table className='w-full'>
