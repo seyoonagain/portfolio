@@ -9,7 +9,7 @@ const Confirm = ({ method }: { method: Contacts }) => {
   const { elRef } = useDraggable();
 
   return (
-    <article
+    <div
       ref={elRef}
       className='absolute z-50 w-96 h-44 bg-white outline outline-1 outline-offset-2 outline-zinc-950 border-2 border-zinc-950 flex flex-col justify-between p-5'
       style={{ boxShadow: '0 0 0 2px white' }}
@@ -22,7 +22,7 @@ const Confirm = ({ method }: { method: Contacts }) => {
         <Button text='확인' action={CONTACT_CONFIRM[method].action} />
         <Button text='취소' />
       </div>
-    </article>
+    </div>
   );
 };
 
