@@ -1,4 +1,4 @@
-import memoji from '../../../public/images/memoji.png';
+import memoji from '@public/images/memoji.png';
 import Image from 'next/image';
 
 const AboutMe = () => {
