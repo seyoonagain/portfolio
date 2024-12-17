@@ -1,8 +1,8 @@
-import { useConfirmPopUpContext } from '@/contexts/useConfirmPopUp';
 import { ButtonProps } from '@/types/props';
+import useContactStore from '@/stores/contactStore';
 
 const Button = ({ text, action }: ButtonProps) => {
-  const { setConfirmPopUp } = useConfirmPopUpContext();
+  const { closePopUp } = useContactStore();
 
   const handleClick = () => {
     if (action && action.copy) {
@@ -10,7 +10,7 @@ const Button = ({ text, action }: ButtonProps) => {
     } else if (action && action.link) {
       window.open(action.link, '_blank');
     }
-    setConfirmPopUp(null);
+    closePopUp();
   };
 
   return (

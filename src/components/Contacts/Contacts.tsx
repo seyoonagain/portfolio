@@ -1,15 +1,12 @@
 import { CONTACT_INFO } from '@/lib/constants/contacts';
 import ContactItem from './ContactItem';
-import { useClickedContactItemContext } from '@/contexts/useClickedContactItem';
+import useContactStore from '@/stores/contactStore';
 
 const Contact = () => {
-  const { setClickedContactItem } = useClickedContactItemContext();
+  const { unselectContactItem } = useContactStore();
 
   return (
-    <section
-      className='w-full h-full'
-      onClick={() => setClickedContactItem(null)}
-    >
+    <section className='w-full h-full' onClick={() => unselectContactItem()}>
       <table className='w-full'>
         <tbody>
           <tr className='font-chicago border-b-4 border-double border-zinc-950'>

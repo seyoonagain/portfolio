@@ -4,13 +4,13 @@ import Icon from '@/components/Icon';
 import WindowFrame from '@/components/WindowFrame/WindowFrame';
 import { WINDOW_CONTENT } from '@/lib/constants/window';
 import { ICON_INFO } from '@/lib/constants/icon';
-import { useWindowContext } from '@/contexts/useWindowContext';
 import Confirm from '@/components/Confirm/Confirm';
-import { useConfirmPopUpContext } from '@/contexts/useConfirmPopUp';
+import useContactStore from '@/stores/contactStore';
+import useWindowStore from '@/stores/windowStore';
 
 const Home = () => {
-  const { windowsOpen } = useWindowContext();
-  const { confirmPopUp, isPoppedUp } = useConfirmPopUpContext();
+  const { isPoppedUp, selectedContactItem } = useContactStore();
+  const { windowsOpen } = useWindowStore();
 
   return (
     <section className='w-full h-full flex justify-center items-center'>
@@ -43,7 +43,7 @@ const Home = () => {
           );
         })}
       </div>
-      {confirmPopUp && <Confirm method={confirmPopUp} />}
+      {selectedContactItem && <Confirm method={selectedContactItem} />}
     </section>
   );
 };

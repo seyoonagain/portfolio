@@ -1,8 +1,8 @@
 import TitleBar from '@/components/WindowFrame/TitleBar';
 import useDraggable from '@/hooks/useDraggable';
 import { WINDOW_STYLE } from '@/lib/constants/window';
-import { useWindowZIndexContext } from '@/contexts/useWindowZIndexContext';
 import { WindowFrameProps } from '@/types/props';
+import useWindowStore from '@/stores/windowStore';
 
 const WindowFrame = ({
   title,
@@ -11,7 +11,7 @@ const WindowFrame = ({
   content: Content,
 }: WindowFrameProps) => {
   const { elRef, grabRef } = useDraggable();
-  const { activateWindow, getZIndex } = useWindowZIndexContext();
+  const { activateWindow, getWindowZIndex } = useWindowStore();
 
   return (
     <div
@@ -21,7 +21,7 @@ const WindowFrame = ({
       style={{
         width: `${width}px`,
         height: `${height}px`,
-        zIndex: `${getZIndex(title)}`,
+        zIndex: `${getWindowZIndex(title)}`,
       }}
     >
       <TitleBar title={title} width={width} ref={grabRef} />

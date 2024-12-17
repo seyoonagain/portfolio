@@ -1,14 +1,14 @@
-import { useClickedContactItemContext } from '@/contexts/useClickedContactItem';
-import { useWindowContext } from '@/contexts/useWindowContext';
 import { TitleBarProps } from '@/types/props';
+import useWindowStore from '@/stores/windowStore';
+import useContactStore from '@/stores/contactStore';
 
 const TitleBar = ({ title, width, ref }: TitleBarProps) => {
-  const { closeWindow } = useWindowContext();
-  const { setClickedContactItem } = useClickedContactItemContext();
+  const { closeWindow } = useWindowStore();
+  const { unselectContactItem } = useContactStore();
 
   const handleCloseWindow = () => {
     if (title === 'Contact') {
-      setClickedContactItem(null);
+      unselectContactItem();
     }
     closeWindow(title);
   };

@@ -1,25 +1,21 @@
-import { useClickedContactItemContext } from '@/contexts/useClickedContactItem';
-import { useConfirmPopUpContext } from '@/contexts/useConfirmPopUp';
 import { ContactItemProps } from '@/types/props';
+import useContactStore from '@/stores/contactStore';
 
 const ContactItem = ({ label, value }: ContactItemProps) => {
-  const { clickedContactItem, setClickedContactItem } =
-    useClickedContactItemContext();
-  const { setConfirmPopUp } = useConfirmPopUpContext();
+  const { selectContactItem, selectedContactItem } = useContactStore();
 
   const handleClickContactItem = (
     e: React.MouseEvent<HTMLTableRowElement, MouseEvent>
   ) => {
     e.stopPropagation();
-    setClickedContactItem(label);
-    setConfirmPopUp(label);
+    selectContactItem(label);
   };
 
   return (
     <>
       <tr
         className={`${
-          clickedContactItem === label
+          selectedContactItem === label
             ? 'bg-zinc-950 text-white'
             : 'bg-white text-zinc-950'
         }`}
