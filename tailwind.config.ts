@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        default: `url('/images/bg.svg')`,
+        balloon: `url('/images/balloonBody.svg')`,
+      },
       fontFamily: {
         chicago: ['chicago'],
         geneva: ['geneva'],
@@ -20,6 +24,9 @@ export default {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+      },
+      dropShadow: {
+        frameShadow: '1px 1px 0 black',
       },
     },
   },
