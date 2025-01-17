@@ -1,0 +1,15 @@
+<svg width="240" height="60" viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M233 1H7V7H1V53H7V58H233V53H238V7H233V1Z" fill="white"/>
+<rect y="7" width="1" height="46" fill="black"/>
+<rect x="238" y="7" width="2" height="46" fill="black"/>
+<rect x="7" y="58" width="226" height="2" fill="black"/>
+<rect x="7" width="226" height="1" fill="black"/>
+<path d="M1 54V53H0V55H1V57H2V58H3V59H5V60H7V58H5V57H3V56H2V54H1Z" fill="black"/>
+<path d="M1 53V54H2V56H3V57H5V58H7V53H1Z" fill="white"/>
+<path d="M239 55H240V53H237V55H236V56H235V57H233V60H235V59H237V58H238V57H239V55Z" fill="black"/>
+<path d="M233 53H237V55H236V56H235V57H233V53Z" fill="white"/>
+<path d="M233 1H234V2H236V3H237V5H238V7H240V5H239V3H238V2H237V1H235V0H233V1Z" fill="black"/>
+<path d="M234 1H233V7H238V5H237V3H236V2H234V1Z" fill="white"/>
+<path d="M5 0V1H3V2H2V3H1V5H0V7H1V6H2V4H3V3H4V2H6V1H7V0H5Z" fill="black"/>
+<path d="M7 1H6V2H4V3H3V4H2V6H1V7H7V1Z" fill="white"/>
+</svg>
