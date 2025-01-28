@@ -11,6 +11,7 @@ export default {
       backgroundImage: {
         default: `url('/images/bg.svg')`,
         balloon: `url('/images/balloonBody.svg')`,
+        alert: `url('/images/alert.svg')`,
       },
       fontFamily: {
         chicago: ['chicago'],
