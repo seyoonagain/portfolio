@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import { DAYS, MONTHS } from '@/lib/constants/clock';
+import { DAYS, MONTHS } from './constants';
 
 const Clock = () => {
   const [dateAndTime, setDateAndTime] = useState<string>('');

@@ -25,6 +25,7 @@
 
 body {
   @apply w-screen h-screen flex;
+  /* cursor: url('/images/cursor.svg'), auto; */
 }
 
 .scrollable {

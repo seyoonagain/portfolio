@@ -1,5 +1,5 @@
-import { MENU_LIST } from '@/lib/constants/menuBar';
 import Clock from './Clock';
+import { MENU_LIST } from './constants';
 
 const MenuBar = () => {
   return (

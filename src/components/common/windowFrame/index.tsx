@@ -1,8 +1,7 @@
-import TitleBar from '@/components/WindowFrame/TitleBar';
+import TitleBar from '@/components/common/windowFrame/TitleBar';
 import useDraggable from '@/hooks/useDraggable';
-import { WINDOW_STYLE } from '@/lib/constants/window';
-import { WindowFrameProps } from '@/types/props';
 import useWindowStore from '@/stores/windowStore';
+import WindowFrameProps from './types';
 
 const WindowFrame = ({
   title,
@@ -17,7 +16,7 @@ const WindowFrame = ({
     <div
       ref={elRef}
       onMouseDown={() => activateWindow(title)}
-      className={WINDOW_STYLE}
+      className='scrollable absolute box-content outline outline-1 outline-zinc-950 bg-white drop-shadow-frameShadow'
       style={{
         width: `${width}px`,
         height: `${height}px`,
@@ -25,7 +24,7 @@ const WindowFrame = ({
       }}
     >
       <TitleBar title={title} width={width} ref={grabRef} />
-      <section className='relative top-6'>
+      <section className='relative top-5'>
         <Content />
       </section>
     </div>

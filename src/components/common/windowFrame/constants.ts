@@ -1,10 +1,10 @@
-import AboutMe from '@/components/AboutMe/AboutMe';
-import Contact from '@/components/Contacts/Contacts';
-import Projects from '@/components/Projects/Projects';
-import { WindowFrameProps } from '@/types/props';
-import { Title } from '@/types/type';
+import AboutMe from '@/components/aboutMe';
+import Contact from '@/components/contacts';
+import Projects from '@/components/projects';
+import { IconTitle } from '@common/icon/types';
+import WindowFrameProps from './types';
 
-export const WINDOW_CONTENT: Record<Title, WindowFrameProps> = {
+export const WINDOW_CONTENT: Record<IconTitle, WindowFrameProps> = {
   'About me': {
     title: 'About me',
     width: 600,
@@ -14,7 +14,7 @@ export const WINDOW_CONTENT: Record<Title, WindowFrameProps> = {
   Contact: {
     title: 'Contact',
     width: 450,
-    height: 164,
+    height: 155,
     content: Contact,
   },
   Projects: {

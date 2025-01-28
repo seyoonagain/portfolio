@@ -1,23 +1,23 @@
-import { Title } from '@/types/type';
+import { IconTitle } from '@/components/common/icon/types';
 import { create } from 'zustand';
 
 type IconState = {
-  activeIcon: Title | null;
-  prevActiveIcon: Title | null;
+  activeIcon: IconTitle | null;
+  prevActiveIcon: IconTitle | null;
 };
 
 type IconActions = {
-  activateIcon: (title: Title | null) => void;
+  activateIcon: (title: IconTitle | null) => void;
   deactivateIcon: () => void;
-  getIconZIndex: (title: Title) => number;
-  isIconSelected: (title: Title) => boolean;
+  getIconZIndex: (title: IconTitle) => number;
+  isIconSelected: (title: IconTitle) => boolean;
 };
 
 const useIconStore = create<IconState & IconActions>()((set, get) => ({
   activeIcon: null,
   prevActiveIcon: null,
 
-  activateIcon: (title: Title | null) =>
+  activateIcon: (title: IconTitle | null) =>
     set((state) => ({
       activeIcon: title,
       prevActiveIcon: state.activeIcon,
@@ -25,7 +25,7 @@ const useIconStore = create<IconState & IconActions>()((set, get) => ({
 
   deactivateIcon: () => set({ activeIcon: null }),
 
-  getIconZIndex: (title: Title) => {
+  getIconZIndex: (title: IconTitle) => {
     let zIndex: number;
     const { activeIcon, prevActiveIcon } = get();
 
@@ -40,7 +40,7 @@ const useIconStore = create<IconState & IconActions>()((set, get) => ({
     return zIndex;
   },
 
-  isIconSelected: (title: Title) => {
+  isIconSelected: (title: IconTitle) => {
     const { activeIcon } = get();
     return activeIcon === title;
   },

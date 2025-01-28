@@ -1,5 +1,4 @@
-import { ButtonProps } from '@/types/props';
-import { Contacts } from '@/types/type';
+import { ContactConfirmType, Contacts } from './types';
 
 export const CONTACT_INFO = [
   {
@@ -20,13 +19,20 @@ export const CONTACT_INFO = [
   },
 ] as const;
 
-export const CONTACT_CONFIRM: Record<Contacts, ButtonProps> = {
+export const CONTACT_CONFIRM: Record<Contacts, ContactConfirmType> = {
   Email: { text: '이메일을 전송하시겠습니까?', action: {} },
   Mobile: {
     text: '번호를 복사하시겠습니까?',
     action: {
       copy: () => {
-        navigator.clipboard.writeText('01075672005');
+        return new Promise((resolve, reject) => {
+          try {
+            navigator.clipboard.writeText('01075672005');
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
       },
     },
   },

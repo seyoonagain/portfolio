@@ -1,4 +1,4 @@
-import { Contacts } from '@/types/type';
+import { Contacts } from '@/components/contacts/types';
 import { create } from 'zustand';
 
 type ContactState = {
@@ -8,6 +8,7 @@ type ContactState = {
 
 type ContactActions = {
   selectContactItem: (contactMethod: Contacts) => void;
+  setContactItem: (contactMethod: Contacts | null) => void;
   unselectContactItem: () => void;
   closePopUp: () => void;
 };
@@ -18,6 +19,10 @@ const useContactStore = create<ContactState & ContactActions>()((set) => ({
 
   selectContactItem: (contactMethod: Contacts) => {
     set({ selectedContactItem: contactMethod, isPoppedUp: true });
+  },
+
+  setContactItem: (contactMethod: Contacts | null) => {
+    set({ selectedContactItem: contactMethod, isPoppedUp: false });
   },
 
   unselectContactItem: () => set({ selectedContactItem: null }),

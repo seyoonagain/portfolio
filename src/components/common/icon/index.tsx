@@ -1,28 +1,49 @@
 'use client';
 
 import useDraggable from '@/hooks/useDraggable';
-import { IconProps } from '@/types/props';
-import { Title } from '@/types/type';
 import useIconStore from '@/stores/iconStore';
 import Image from 'next/image';
 import useWindowStore from '@/stores/windowStore';
+import IconProps from './types';
+import useOutsideClick from '@/hooks/useOutsideClick';
+import { KeyboardEvent } from 'react';
 
 const Icon = ({ title, file, top, left }: IconProps) => {
-  const { elRef } = useDraggable();
+  const { elRef: ref } = useDraggable();
   const { activeIcon, activateIcon, getIconZIndex } = useIconStore();
-  const { openWindow, activateWindow } = useWindowStore();
+  const { openWindow, activateWindow, activeWindow } = useWindowStore();
 
-  const handleDbClick = (title: Title) => {
+  const handleDbClick = () => {
     openWindow(title);
     activateWindow(title);
     activateIcon(null);
   };
 
+  const handleKeyDown = (e: KeyboardEvent) => {
+    switch (e.key) {
+      case 'Enter':
+        e.preventDefault();
+        handleDbClick();
+        break;
+    }
+  };
+
+  const handleFocus = () => {
+    activateIcon(title);
+  };
+
+  useOutsideClick({ ref, callback: () => activateIcon(null) });
+
   return (
     <div
-      ref={elRef}
-      onDoubleClick={() => handleDbClick(title)}
-      onMouseDown={() => activateIcon(title)}
+      ref={ref}
+      tabIndex={activeWindow ? -1 : 0}
+      role='button'
+      aria-labelledby={`icon-${title}`}
+      onKeyDown={handleKeyDown}
+      onDoubleClick={handleDbClick}
+      onMouseDown={handleFocus}
+      onFocus={handleFocus}
       className='absolute flex flex-col items-center cursor-pointer'
       style={{
         top: `${top}px`,
@@ -31,6 +52,7 @@ const Icon = ({ title, file, top, left }: IconProps) => {
       }}
     >
       <Image
+        id={`icon-${title}`}
         className={activeIcon === title ? 'invert' : 'invert-0'}
         src={file}
         alt={title}
@@ -38,6 +60,7 @@ const Icon = ({ title, file, top, left }: IconProps) => {
         quality={100}
         unoptimized={true}
         draggable='false'
+        priority
       />
       <div
         className={`font-geneva text-2xl px-1 flex items-center h-4 ${
@@ -46,7 +69,9 @@ const Icon = ({ title, file, top, left }: IconProps) => {
             : 'bg-zinc-100 text-zinc-950'
         }`}
       >
-        <span className='text-nowrap'>{title}</span>
+        <span id={`icon-${title}`} className='text-nowrap'>
+          {title}
+        </span>
       </div>
     </div>
   );
