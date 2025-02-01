@@ -1,4 +1,4 @@
-import { ToastProps } from '@/components/common/toast/types';
+import ToastProps from '@/components/common/toast/types';
 import useToastStore from '@/stores/toastStore';
 import { v4 as uuid } from 'uuid';
 
