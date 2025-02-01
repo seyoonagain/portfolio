@@ -96,7 +96,7 @@ const Confirm = ({ method }: ConfirmProps) => {
           {CONTACT_CONFIRM[method].text}
         </p>
       </div>
-      <div className='self-end flex gap-5'>
+      <div className='flex gap-5 self-end'>
         <Button text='취소' onClick={handleCancel} ref={cancelButtonRef} />
         <Button text='확인' onClick={handleConfirm} ref={confirmButtonRef} />
       </div>

@@ -44,7 +44,7 @@ const Icon = ({ title, file, top, left }: IconProps) => {
       onDoubleClick={handleDbClick}
       onMouseDown={handleFocus}
       onFocus={handleFocus}
-      className='absolute flex flex-col items-center cursor-pointer'
+      className='flex flex-col items-center absolute cursor-pointer'
       style={{
         top: `${top}px`,
         left: `${left}px`,
@@ -63,7 +63,7 @@ const Icon = ({ title, file, top, left }: IconProps) => {
         priority
       />
       <div
-        className={`font-geneva text-2xl px-1 flex items-center h-4 ${
+        className={`flex items-center h-4 px-1 font-geneva text-2xl ${
           activeIcon === title
             ? 'bg-zinc-950 text-zinc-100'
             : 'bg-zinc-100 text-zinc-950'

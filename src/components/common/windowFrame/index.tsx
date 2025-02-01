@@ -2,6 +2,7 @@ import TitleBar from '@/components/common/windowFrame/TitleBar';
 import useDraggable from '@/hooks/useDraggable';
 import useWindowStore from '@/stores/windowStore';
 import WindowFrameProps from './types';
+import { WINDOW_STYLE } from './constants';
 
 const WindowFrame = ({
   title,
@@ -16,7 +17,7 @@ const WindowFrame = ({
     <div
       ref={elRef}
       onMouseDown={() => activateWindow(title)}
-      className='scrollable absolute box-content outline outline-1 outline-zinc-950 bg-white drop-shadow-frameShadow'
+      className={WINDOW_STYLE}
       style={{
         width: `${width}px`,
         height: `${height}px`,

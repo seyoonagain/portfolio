@@ -13,7 +13,7 @@ const Home = () => {
   const { windowsOpen } = useWindowStore();
 
   return (
-    <div className='w-full h-full flex justify-center items-center'>
+    <div className='flex justify-center items-center w-full h-full'>
       <div
         className={`flex justify-center items-center ${
           isPoppedUp && 'pointer-events-none'
@@ -22,6 +22,7 @@ const Home = () => {
         {ICON_INFO.map(({ title, file, top, left }) => (
           <Icon key={title} file={file} title={title} top={top} left={left} />
         ))}
+
         {windowsOpen.map((title) => {
           const content = WINDOW_CONTENT[title];
           return (

@@ -1,7 +1,7 @@
 import { cva } from 'class-variance-authority';
 
 export const toastStyles = cva(
-  'w-72 h-20 px-4 bg-balloon bg-contain bg-center bg-no-repeat font-galmuri9 text-sm content-center transition-all ease-in-out duration-300',
+  'content-center w-72 h-20 px-4 bg-balloon bg-contain bg-center bg-no-repeat font-galmuri9 text-sm transition-all ease-in-out duration-300',
   {
     variants: {
       isVisible: {

@@ -10,7 +10,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         type={type}
         {...props}
         className={twMerge(
-          'w-20 h-6 rounded-md border border-zinc-950 active:border-t-2 active:border-l-2 font-galmuri9 text-sm outline outline-2 outline-offset-1 outline-zinc-950 focus:outline-[3px]',
+          'w-20 h-6 border border-zinc-950 rounded-md active:border-t-2 active:border-l-2 font-galmuri9 text-sm outline outline-2 outline-offset-1 outline-zinc-950 focus:outline-[3px]',
           className
         )}
       >
