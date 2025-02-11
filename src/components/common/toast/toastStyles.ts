@@ -13,5 +13,5 @@ export const toastStyles = cva(
         fail: '',
       },
     },
-  }
+  },
 );

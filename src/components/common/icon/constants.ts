@@ -1,6 +1,7 @@
-import macintoshHappy from '@public/images/macintoshHappy.svg';
 import linkAddresses from '@public/images/linkAddresses.svg';
+import macintoshHappy from '@public/images/macintoshHappy.svg';
 import save from '@public/images/save.svg';
+
 import IconProps from './types';
 
 export const ICON_INFO: Array<IconProps> = [

@@ -1,4 +1,5 @@
 import { ComponentType, RefObject } from 'react';
+
 import { IconTitle } from '@common/icon/types';
 
 export type TitleBarProps = {

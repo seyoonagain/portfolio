@@ -1,7 +1,8 @@
+import { IconTitle } from '@common/icon/types';
 import AboutMe from '@/components/aboutMe';
 import Contact from '@/components/contacts';
 import Projects from '@/components/projects';
-import { IconTitle } from '@common/icon/types';
+
 import WindowFrameProps from './types';
 
 export const WINDOW_CONTENT: Record<IconTitle, WindowFrameProps> = {

@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+
 import { DAYS, MONTHS } from './constants';
 
 const Clock = () => {
@@ -17,17 +18,11 @@ const Clock = () => {
     const month: string = MONTHS[now.getMonth()];
     const date: number = now.getDate();
     const hours: number =
-      now.getHours() === 0
-        ? 12
-        : now.getHours() > 12
-        ? now.getHours() - 12
-        : now.getHours();
+      now.getHours() === 0 ? 12 : now.getHours() > 12 ? now.getHours() - 12 : now.getHours();
     const minutes: number = now.getMinutes();
     const seconds: number = now.getSeconds();
     setDateAndTime(
-      `${day} ${month} ${date}\xa0\xa0${hours}:${padStart(minutes)}:${padStart(
-        seconds
-      )}`
+      `${day} ${month} ${date}\xa0\xa0${hours}:${padStart(minutes)}:${padStart(seconds)}`,
     );
     setTime(`${padStart(hours)}:${padStart(minutes)}`);
   }, []);
@@ -44,8 +39,8 @@ const Clock = () => {
 
   return (
     <>
-      <span className='sm:hidden'>{time}</span>
-      <span className='hidden sm:block'>{dateAndTime}</span>
+      <span className="sm:hidden">{time}</span>
+      <span className="hidden sm:block">{dateAndTime}</span>
     </>
   );
 };

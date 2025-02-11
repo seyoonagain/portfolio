@@ -1,12 +1,14 @@
 'use client';
 
-import useDraggable from '@/hooks/useDraggable';
-import useIconStore from '@/stores/iconStore';
-import Image from 'next/image';
-import useWindowStore from '@/stores/windowStore';
-import IconProps from './types';
-import useOutsideClick from '@/hooks/useOutsideClick';
 import { KeyboardEvent } from 'react';
+import Image from 'next/image';
+
+import useDraggable from '@/hooks/useDraggable';
+import useOutsideClick from '@/hooks/useOutsideClick';
+import useIconStore from '@/stores/iconStore';
+import useWindowStore from '@/stores/windowStore';
+
+import IconProps from './types';
 
 const Icon = ({ title, file, top, left }: IconProps) => {
   const { elRef: ref } = useDraggable();
@@ -38,13 +40,13 @@ const Icon = ({ title, file, top, left }: IconProps) => {
     <div
       ref={ref}
       tabIndex={activeWindow ? -1 : 0}
-      role='button'
+      role="button"
       aria-labelledby={`icon-${title}`}
       onKeyDown={handleKeyDown}
       onDoubleClick={handleDbClick}
       onMouseDown={handleFocus}
       onFocus={handleFocus}
-      className='flex flex-col items-center absolute cursor-pointer'
+      className="flex flex-col items-center absolute cursor-pointer"
       style={{
         top: `${top}px`,
         left: `${left}px`,
@@ -59,17 +61,15 @@ const Icon = ({ title, file, top, left }: IconProps) => {
         width={48}
         quality={100}
         unoptimized={true}
-        draggable='false'
+        draggable="false"
         priority
       />
       <div
         className={`flex items-center h-4 px-1 font-geneva text-2xl ${
-          activeIcon === title
-            ? 'bg-zinc-950 text-zinc-100'
-            : 'bg-zinc-100 text-zinc-950'
+          activeIcon === title ? 'bg-zinc-950 text-zinc-100' : 'bg-zinc-100 text-zinc-950'
         }`}
       >
-        <span id={`icon-${title}`} className='text-nowrap'>
+        <span id={`icon-${title}`} className="text-nowrap">
           {title}
         </span>
       </div>

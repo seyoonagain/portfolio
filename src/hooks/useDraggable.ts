@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useRef } from 'react';
 
 interface UseDraggableReturn {
@@ -41,7 +42,7 @@ const useDraggable = (): UseDraggableReturn => {
         () => {
           document.removeEventListener('mousemove', dragCalculator);
         },
-        { once: true }
+        { once: true },
       );
     };
 

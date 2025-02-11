@@ -1,20 +1,19 @@
-import useContactStore from '@/stores/contactStore';
-import { ContactItemProps } from './types';
-import useWindowStore from '@/stores/windowStore';
 import { KeyboardEvent, useRef, useState } from 'react';
 import clsx from 'clsx';
 
+import useContactStore from '@/stores/contactStore';
+import useWindowStore from '@/stores/windowStore';
+
+import { ContactItemProps } from './types';
+
 const ContactItem = ({ label, value }: ContactItemProps) => {
   const { activeWindow, closeWindow } = useWindowStore();
-  const { selectContactItem, selectedContactItem, setContactItem, isPoppedUp } =
-    useContactStore();
+  const { selectContactItem, selectedContactItem, setContactItem, isPoppedUp } = useContactStore();
 
   const itemRef = useRef<HTMLTableRowElement | null>(null);
   const [nextItem, setNextItem] = useState<HTMLTableRowElement | null>(null);
 
-  const handleClickContactItem = (
-    e: React.MouseEvent<HTMLTableRowElement, MouseEvent>
-  ) => {
+  const handleClickContactItem = (e: React.MouseEvent<HTMLTableRowElement, MouseEvent>) => {
     e.stopPropagation();
     selectContactItem(label);
   };
@@ -40,11 +39,10 @@ const ContactItem = ({ label, value }: ContactItemProps) => {
             e.shiftKey
               ? (itemRef.current.previousElementSibling as HTMLTableRowElement)
               : (itemRef.current.nextElementSibling as HTMLTableRowElement) ||
-                  itemRef.current.parentElement?.children[1]
+                  itemRef.current.parentElement?.children[1],
           );
 
-          if (nextItem && nextItem instanceof HTMLTableRowElement)
-            nextItem.focus();
+          if (nextItem && nextItem instanceof HTMLTableRowElement) nextItem.focus();
         }
 
         break;
@@ -58,14 +56,12 @@ const ContactItem = ({ label, value }: ContactItemProps) => {
       onKeyDown={handleKeyDown}
       onFocus={() => setContactItem(label)}
       className={clsx(
-        selectedContactItem === label
-          ? 'bg-zinc-950 text-white'
-          : 'bg-white text-zinc-950'
+        selectedContactItem === label ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-950',
       )}
       onClick={handleClickContactItem}
     >
-      <td className='font-chicago'>{label}</td>
-      <td className='font-geneva text-xl cursor-pointer'>{value}</td>
+      <td className="font-chicago">{label}</td>
+      <td className="font-geneva text-xl cursor-pointer">{value}</td>
     </tr>
   );
 };

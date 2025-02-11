@@ -1,6 +1,7 @@
+import { v4 as uuid } from 'uuid';
+
 import ToastProps from '@/components/common/toast/types';
 import useToastStore from '@/stores/toastStore';
-import { v4 as uuid } from 'uuid';
 
 const useToast = () => {
   const { addToast, showToast, hideToast, removeToast } = useToastStore();

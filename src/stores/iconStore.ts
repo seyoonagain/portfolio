@@ -1,5 +1,6 @@
-import { IconTitle } from '@/components/common/icon/types';
 import { create } from 'zustand';
+
+import { IconTitle } from '@/components/common/icon/types';
 
 type IconState = {
   activeIcon: IconTitle | null;
@@ -18,7 +19,7 @@ const useIconStore = create<IconState & IconActions>()((set, get) => ({
   prevActiveIcon: null,
 
   activateIcon: (title: IconTitle | null) =>
-    set((state) => ({
+    set(state => ({
       activeIcon: title,
       prevActiveIcon: state.activeIcon,
     })),

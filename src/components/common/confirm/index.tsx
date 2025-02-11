@@ -1,10 +1,12 @@
-import useDraggable from '@/hooks/useDraggable';
+import { useEffect, useRef } from 'react';
+
 import Button from '@common/button';
 import { CONTACT_CONFIRM } from '@/components/contacts/constants';
-import ConfirmProps from './types';
-import useContactStore from '@/stores/contactStore';
+import useDraggable from '@/hooks/useDraggable';
 import useToast from '@/hooks/useToast';
-import { useEffect, useRef } from 'react';
+import useContactStore from '@/stores/contactStore';
+
+import ConfirmProps from './types';
 
 const Confirm = ({ method }: ConfirmProps) => {
   const { elRef } = useDraggable();
@@ -52,7 +54,7 @@ const Confirm = ({ method }: ConfirmProps) => {
 
         break;
 
-      case 'Tab':
+      case 'Tab': {
         e.preventDefault();
 
         const nextItem =
@@ -63,6 +65,7 @@ const Confirm = ({ method }: ConfirmProps) => {
         nextItem?.focus();
 
         break;
+      }
     }
   };
 
@@ -84,21 +87,21 @@ const Confirm = ({ method }: ConfirmProps) => {
   return (
     <div
       ref={elRef}
-      role='dialog'
+      role="dialog"
       aria-modal={true}
-      aria-labelledby='confirm-title'
-      className='flex flex-col justify-between absolute z-50 w-96 h-44 p-5 border-2 border-zinc-950 bg-white outline outline-1 outline-offset-2 outline-zinc-950'
+      aria-labelledby="confirm-title"
+      className="flex flex-col justify-between absolute z-50 w-96 h-44 p-5 border-2 border-zinc-950 bg-white outline outline-1 outline-offset-2 outline-zinc-950"
       style={{ boxShadow: '0 0 0 2px white' }}
     >
-      <div className='flex gap-3 w-full'>
-        <div className='shrink-0 relative size-12 bg-alert bg-center bg-contain bg-no-repeat' />
-        <p id='confirm-title' className='font-galmuri9 text-sm'>
+      <div className="flex gap-3 w-full">
+        <div className="shrink-0 relative size-12 bg-alert bg-center bg-contain bg-no-repeat" />
+        <p id="confirm-title" className="font-galmuri9 text-sm">
           {CONTACT_CONFIRM[method].text}
         </p>
       </div>
-      <div className='flex gap-5 self-end'>
-        <Button text='취소' onClick={handleCancel} ref={cancelButtonRef} />
-        <Button text='확인' onClick={handleConfirm} ref={confirmButtonRef} />
+      <div className="flex gap-5 self-end">
+        <Button text="취소" onClick={handleCancel} ref={cancelButtonRef} />
+        <Button text="확인" onClick={handleConfirm} ref={confirmButtonRef} />
       </div>
     </div>
   );

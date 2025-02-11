@@ -1,5 +1,6 @@
-import { Contacts } from '@/components/contacts/types';
 import { create } from 'zustand';
+
+import { Contacts } from '@/components/contacts/types';
 
 type ContactState = {
   selectedContactItem: Contacts | null;
@@ -13,7 +14,7 @@ type ContactActions = {
   closePopUp: () => void;
 };
 
-const useContactStore = create<ContactState & ContactActions>()((set) => ({
+const useContactStore = create<ContactState & ContactActions>()(set => ({
   selectedContactItem: null,
   isPoppedUp: false,
 

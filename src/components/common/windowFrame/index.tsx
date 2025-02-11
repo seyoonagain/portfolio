@@ -1,15 +1,11 @@
 import TitleBar from '@/components/common/windowFrame/TitleBar';
 import useDraggable from '@/hooks/useDraggable';
 import useWindowStore from '@/stores/windowStore';
-import WindowFrameProps from './types';
-import { WINDOW_STYLE } from './constants';
 
-const WindowFrame = ({
-  title,
-  width,
-  height,
-  content: Content,
-}: WindowFrameProps) => {
+import { WINDOW_STYLE } from './constants';
+import WindowFrameProps from './types';
+
+const WindowFrame = ({ title, width, height, content: Content }: WindowFrameProps) => {
   const { elRef, grabRef } = useDraggable();
   const { activateWindow, getWindowZIndex } = useWindowStore();
 
@@ -25,7 +21,7 @@ const WindowFrame = ({
       }}
     >
       <TitleBar title={title} width={width} ref={grabRef} />
-      <section className='relative top-5'>
+      <section className="relative top-5">
         <Content />
       </section>
     </div>

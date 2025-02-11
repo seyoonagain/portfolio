@@ -1,5 +1,6 @@
-import { IconTitle } from '@/components/common/icon/types';
 import { create } from 'zustand';
+
+import { IconTitle } from '@/components/common/icon/types';
 
 type WindowState = {
   windowsOpen: IconTitle[];
@@ -20,7 +21,7 @@ const useWindowStore = create<WindowState & WindowActions>()((set, get) => ({
   prevActiveWindows: [],
 
   openWindow: (title: IconTitle) =>
-    set((state) => {
+    set(state => {
       if (state.windowsOpen.length > 0 && state.windowsOpen.includes(title)) {
         return { windowsOpen: [...state.windowsOpen] };
       } else {
@@ -29,31 +30,23 @@ const useWindowStore = create<WindowState & WindowActions>()((set, get) => ({
     }),
 
   closeWindow: (title: IconTitle) =>
-    set((state) => {
+    set(state => {
       return {
-        windowsOpen: state.windowsOpen.filter((window) => window !== title),
-        activeWindow:
-          state.prevActiveWindows.length > 0
-            ? state.prevActiveWindows.pop()
-            : null,
+        windowsOpen: state.windowsOpen.filter(window => window !== title),
+        activeWindow: state.prevActiveWindows.length > 0 ? state.prevActiveWindows.pop() : null,
       };
     }),
 
   activateWindow: (title: IconTitle | null) =>
-    set((state) => {
+    set(state => {
       if (state.activeWindow && state.activeWindow !== title) {
         return {
           activeWindow: title,
-          prevActiveWindows: !state.prevActiveWindows.includes(
-            state.activeWindow
-          )
-            ? [
-                ...state.prevActiveWindows.filter((window) => window !== title),
-                state.activeWindow,
-              ]
+          prevActiveWindows: !state.prevActiveWindows.includes(state.activeWindow)
+            ? [...state.prevActiveWindows.filter(window => window !== title), state.activeWindow]
             : [
                 ...state.prevActiveWindows.filter(
-                  (window) => window !== state.activeWindow || window !== title
+                  window => window !== state.activeWindow || window !== title,
                 ),
                 state.activeWindow,
               ],
