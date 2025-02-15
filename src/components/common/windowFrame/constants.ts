@@ -20,8 +20,8 @@ export const WINDOW_CONTENT: Record<IconTitle, WindowFrameProps> = {
   },
   Projects: {
     title: 'Projects',
-    width: 600,
-    height: 600,
+    width: 864,
+    height: 712,
     content: Projects,
   },
 } as const;
