@@ -21,7 +21,7 @@ const WindowFrame = ({ title, width, height, content: Content }: WindowFrameProp
       }}
     >
       <TitleBar title={title} width={width} ref={grabRef} />
-      <section className="relative top-5">
+      <section className="relative top-5 w-full h-full">
         <Content />
       </section>
     </div>
