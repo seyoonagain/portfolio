@@ -20,7 +20,7 @@ const TitleBar = ({ title, width, ref }: TitleBarProps) => {
     <div
       ref={ref}
       className={clsx(
-        'flex items-center fixed h-5 pl-2 border-b border-zinc-950 bg-center bg-repeat-x bg-white cursor-default',
+        'flex items-center relative h-5 pl-2 border-b border-zinc-950 bg-center bg-repeat-x bg-white cursor-default',
         activeWindow === title && 'bg-[url(/images/titleBarBg.svg)]',
       )}
       style={{ width: `${width}px` }}

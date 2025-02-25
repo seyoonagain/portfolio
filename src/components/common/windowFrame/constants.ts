@@ -27,4 +27,4 @@ export const WINDOW_CONTENT: Record<IconTitle, WindowFrameProps> = {
 } as const;
 
 export const WINDOW_STYLE =
-  'absolute bg-white box-content outline outline-1 outline-zinc-950 drop-shadow-frameShadow scrollable' as const;
+  'flex flex-col absolute bg-white box-content outline outline-1 outline-zinc-950 drop-shadow-frameShadow' as const;
