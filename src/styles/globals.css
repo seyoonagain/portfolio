@@ -24,8 +24,8 @@
 }
 
 body {
-  @apply w-screen h-screen flex;
-  /* cursor: url('/images/cursor.svg'), auto; */
+  @apply flex w-screen h-screen;
+  @apply overflow-hidden;
 }
 
 .scrollable {
