@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 export type ProjectTitles = '하쿠나마타타로' | '도르멍';
@@ -7,15 +8,14 @@ export type ProjectDetails = {
   image: StaticImport;
   startedAt: string;
   endedAt: string;
-  overview: string;
+  overview: ReactNode;
   backend: number;
   frontend: number;
   techStacks: string[];
-  githubRepo: string;
-  website: string;
-  responsibilities: string[];
-  keyAchievements: string[];
-  lessonsLearned: string[];
+  links: { link: 'Repository' | 'Demo'; href: string }[];
+  responsibilities: ReactNode[];
+  keyAchievements: { title: string; details: string[] }[];
+  lessonsLearned: { title: string; details: string[] }[];
 };
 
 export type ProjectDetailsProps = {
