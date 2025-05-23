@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 import ProjectTab from '@/components/projects/projectTab';
 import { Project } from '@/interfaces/project';
@@ -12,6 +12,12 @@ const ProjectPanel = ({ projects }: { projects: Project[] }) => {
 
   const selectedProject = projects.find(project => project.title === selectedTitle);
 
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [selectedTitle]);
+
   return (
     <div className="flex flex-col relative w-full h-full">
       <ProjectTab
@@ -19,7 +25,10 @@ const ProjectPanel = ({ projects }: { projects: Project[] }) => {
         selectedTitle={selectedTitle}
         setSelectedTitle={setSelectedTitle}
       />
-      <div className="w-full h-full z-0 px-4 pt-2 mt-[27px] border-t border-zinc-950 bg-white overflow-y-auto">
+      <div
+        ref={scrollContainerRef}
+        className="w-full h-full z-0 px-4 pt-2 mt-[27px] border-t border-zinc-950 bg-white overflow-y-auto"
+      >
         {selectedProject && <ProjectDetails selectedProject={selectedProject} />}
       </div>
     </div>
