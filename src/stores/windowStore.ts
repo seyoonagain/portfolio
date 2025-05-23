@@ -2,16 +2,16 @@ import { IconTitle } from '@/components/home/icon';
 import { create } from 'zustand';
 
 type WindowState = {
-  windowsOpen: IconTitle[];
-  activeWindow: IconTitle | null;
-  prevActiveWindows: IconTitle[];
+  windowsOpen: (IconTitle | 'Email')[];
+  activeWindow: IconTitle | 'Email' | null;
+  prevActiveWindows: (IconTitle | 'Email')[];
 };
 
 type WindowActions = {
-  activateWindow: (title: IconTitle) => void;
-  openWindow: (title: IconTitle) => void;
-  closeWindow: (title: IconTitle) => void;
-  getWindowZIndex: (title: IconTitle) => number;
+  activateWindow: (title: IconTitle | 'Email') => void;
+  openWindow: (title: IconTitle | 'Email') => void;
+  closeWindow: (title: IconTitle | 'Email') => void;
+  getWindowZIndex: (title: IconTitle | 'Email') => number;
 };
 
 const useWindowStore = create<WindowState & WindowActions>()((set, get) => ({
@@ -19,7 +19,7 @@ const useWindowStore = create<WindowState & WindowActions>()((set, get) => ({
   activeWindow: null,
   prevActiveWindows: [],
 
-  openWindow: (title: IconTitle) =>
+  openWindow: (title: IconTitle | 'Email') =>
     set(state => {
       if (state.windowsOpen.length > 0 && state.windowsOpen.includes(title)) {
         return { windowsOpen: [...state.windowsOpen] };
@@ -28,7 +28,7 @@ const useWindowStore = create<WindowState & WindowActions>()((set, get) => ({
       }
     }),
 
-  closeWindow: (title: IconTitle) =>
+  closeWindow: (title: IconTitle | 'Email') =>
     set(state => {
       return {
         windowsOpen: state.windowsOpen.filter(window => window !== title),
@@ -36,7 +36,7 @@ const useWindowStore = create<WindowState & WindowActions>()((set, get) => ({
       };
     }),
 
-  activateWindow: (title: IconTitle | null) =>
+  activateWindow: (title: IconTitle | 'Email' | null) =>
     set(state => {
       if (state.activeWindow && state.activeWindow !== title) {
         return {
@@ -53,7 +53,7 @@ const useWindowStore = create<WindowState & WindowActions>()((set, get) => ({
       } else return { activeWindow: title };
     }),
 
-  getWindowZIndex: (title: IconTitle) => {
+  getWindowZIndex: (title: IconTitle | 'Email') => {
     let zIndex: number;
     const { activeWindow, prevActiveWindows } = get();
 
