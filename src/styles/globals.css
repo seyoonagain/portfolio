@@ -41,3 +41,54 @@ body {
 td {
   @apply px-2;
 }
+
+/* markdown styles */
+
+.markdown {
+  @apply tracking-tight leading-8;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply py-2;
+}
+
+.markdown li {
+  @apply relative;
+}
+
+.markdown ul > li {
+  @apply pl-3 before:content-['-'] before:absolute before:left-0;
+}
+
+.markdown ol > li {
+  @apply pl-1 ml-3 list-decimal;
+}
+
+.markdown ul ul {
+  @apply py-0;
+}
+
+.markdown h2 {
+  @apply mt-6 border-b border-zinc-950 font-medium font-chicago text-2xl tracking-tighter;
+}
+
+.markdown h3 {
+  @apply mt-4 text-base font-galmuri9;
+}
+
+.markdown h4 {
+  @apply pt-4 text-lg;
+}
+
+.markdown strong {
+  @apply font-semibold;
+}
+
+.markdown code {
+  @apply px-1.5 rounded-lg bg-zinc-200;
+  counter-reset: step;
+  counter-increment: step 0;
+}

@@ -5,7 +5,7 @@ import useWindowStore from '@/stores/windowStore';
 import { WINDOW_STYLE } from './constants';
 import WindowFrameProps from './types';
 
-const WindowFrame = ({ title, width, height, content: Content }: WindowFrameProps) => {
+const WindowFrame = ({ title, width, height, content }: WindowFrameProps) => {
   const { elRef, grabRef } = useDraggable();
   const { activateWindow, getWindowZIndex } = useWindowStore();
 
@@ -21,9 +21,7 @@ const WindowFrame = ({ title, width, height, content: Content }: WindowFrameProp
       }}
     >
       <TitleBar title={title} width={width} ref={grabRef} />
-      <section className="grow relative w-full h-full overflow-y-auto">
-        <Content />
-      </section>
+      <section className="grow relative w-full h-full overflow-y-auto">{content}</section>
     </div>
   );
 };

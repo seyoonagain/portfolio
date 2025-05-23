@@ -1,42 +1,18 @@
-'use client';
+'use server';
 
-import Confirm from '@common/confirm';
-import Icon from '@common/icon';
-import { ICON_INFO } from '@common/icon/constants';
-import WindowFrame from '@common/windowFrame';
-import { WINDOW_CONTENT } from '@common/windowFrame/constants';
-import useContactStore from '@/stores/contactStore';
-import useWindowStore from '@/stores/windowStore';
+import AboutMe from '@/components/aboutMe';
+import Contact from '@/components/contact';
+import Home from '@/components/home';
+import Projects from '@/components/projects';
 
-const Home = () => {
-  const { isPoppedUp, selectedContactItem } = useContactStore();
-  const { windowsOpen } = useWindowStore();
+const Page = () => {
+  const serverWindow = {
+    'About me': <AboutMe />,
+    Contact: <Contact />,
+    Projects: <Projects />,
+  };
 
-  return (
-    <div className="flex justify-center items-center w-full h-full">
-      <div className={`flex justify-center items-center ${isPoppedUp && 'pointer-events-none'}`}>
-        {ICON_INFO.map(({ title, file, top, left }) => (
-          <Icon key={title} file={file} title={title} top={top} left={left} />
-        ))}
-
-        {windowsOpen.map(title => {
-          const content = WINDOW_CONTENT[title];
-          return (
-            content && (
-              <WindowFrame
-                key={title}
-                title={content.title}
-                width={content.width}
-                height={content.height}
-                content={content.content}
-              />
-            )
-          );
-        })}
-      </div>
-      {selectedContactItem && isPoppedUp && <Confirm method={selectedContactItem} />}
-    </div>
-  );
+  return <Home serverWindow={serverWindow} />;
 };
 
-export default Home;
+export default Page;

@@ -1,5 +1,5 @@
-import { Contacts } from '@/components/contacts/types';
+import { ContactsMethod } from '@/components/contact/types';
 
-type ConfirmProps = { method: Contacts };
+type ConfirmProps = { method: ContactsMethod };
 
 export default ConfirmProps;

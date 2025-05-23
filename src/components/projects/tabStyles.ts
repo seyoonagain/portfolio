@@ -6,7 +6,7 @@ const tabStyles = cva(
     variants: {
       isSelected: {
         true: 'h-[25px] bg-white',
-        false: 'bg-zinc-300',
+        false: 'bg-zinc-200',
       },
     },
   },

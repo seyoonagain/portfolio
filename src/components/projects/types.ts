@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
-export type ProjectTitles = '하쿠나마타타로' | '도르멍';
+export type ProjectTitles = '계산기' | '하쿠나마타타로' | '도르멍' | '블로그';
 
 export type ProjectDetails = {
   title: ProjectTitles;

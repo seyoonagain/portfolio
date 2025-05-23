@@ -1,4 +1,4 @@
-import { ContactConfirmType, Contacts } from './types';
+import { ContactConfirmType, ContactsMethod } from './types';
 
 export const CONTACT_INFO = [
   {
@@ -19,7 +19,7 @@ export const CONTACT_INFO = [
   },
 ] as const;
 
-export const CONTACT_CONFIRM: Record<Contacts, ContactConfirmType> = {
+export const CONTACT_CONFIRM: Record<ContactsMethod, ContactConfirmType> = {
   Email: { text: '이메일을 전송하시겠습니까?', action: {} },
   Mobile: {
     text: '번호를 복사하시겠습니까?',

@@ -1,32 +1,15 @@
-import { useState } from 'react';
+import ProjectPanel from '@/components/projects/projectPanel';
 
-import { PROJECTS } from './constants';
-import ProjectDetails from './ProjectDetails';
-import tabStyles from './tabStyles';
-import { ProjectTitles } from './types';
+import { getAllProjects } from '@/lib/projectApi';
+import markdownToHtml from '../../lib/markdownToHtml';
 
-const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState<ProjectTitles>('하쿠나마타타로');
-
-  return (
-    <div className="flex flex-col relative w-full h-full">
-      <div className="flex z-10 w-full h-7 px-1">
-        {PROJECTS.map(project => (
-          <div
-            key={project}
-            onClick={() => setSelectedProject(project)}
-            className={tabStyles({ isSelected: selectedProject === project })}
-          >
-            {project}
-          </div>
-        ))}
-      </div>
-
-      <div className="grow w-full border-t border-zinc-950 bg-white">
-        <ProjectDetails selectedProject={selectedProject} />
-      </div>
-    </div>
+const Projects = async () => {
+  const projects = getAllProjects();
+  const projectsWithHtml = await Promise.all(
+    projects.map(async project => ({ ...project, content: await markdownToHtml(project.content) })),
   );
+
+  return <ProjectPanel projects={projectsWithHtml} />;
 };
 
 export default Projects;

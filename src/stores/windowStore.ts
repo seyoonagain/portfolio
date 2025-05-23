@@ -1,6 +1,5 @@
+import { IconTitle } from '@/components/home/icon';
 import { create } from 'zustand';
-
-import { IconTitle } from '@/components/common/icon/types';
 
 type WindowState = {
   windowsOpen: IconTitle[];

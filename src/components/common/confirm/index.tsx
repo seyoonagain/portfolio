@@ -1,7 +1,9 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 
 import Button from '@common/button';
-import { CONTACT_CONFIRM } from '@/components/contacts/constants';
+import { CONTACT_CONFIRM } from '@/components/contact/constants';
 import useDraggable from '@/hooks/useDraggable';
 import useToast from '@/hooks/useToast';
 import useContactStore from '@/stores/contactStore';

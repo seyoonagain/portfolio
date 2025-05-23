@@ -1,14 +1,21 @@
 'use client';
 
 import { KeyboardEvent } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 import useDraggable from '@/hooks/useDraggable';
 import useOutsideClick from '@/hooks/useOutsideClick';
 import useIconStore from '@/stores/iconStore';
 import useWindowStore from '@/stores/windowStore';
 
-import IconProps from './types';
+export type IconTitle = 'About me' | 'Contact' | 'Projects';
+
+export type IconProps = {
+  title: IconTitle;
+  file: StaticImageData;
+  top: number;
+  left: number;
+};
 
 const Icon = ({ title, file, top, left }: IconProps) => {
   const { elRef: ref } = useDraggable();

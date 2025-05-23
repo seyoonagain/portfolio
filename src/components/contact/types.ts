@@ -1,7 +1,7 @@
-export type Contacts = 'Email' | 'Mobile' | 'GitHub' | 'LinkedIn';
+export type ContactsMethod = 'Email' | 'Mobile' | 'GitHub' | 'LinkedIn';
 
 export type ContactItemProps = {
-  label: Contacts;
+  label: ContactsMethod;
   value: string;
 };
 

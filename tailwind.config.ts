@@ -29,6 +29,9 @@ export default {
       dropShadow: {
         frameShadow: '1px 1px 0 black',
       },
+      aspectRatio: {
+        project: '16 / 10',
+      },
     },
   },
   plugins: [],

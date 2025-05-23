@@ -1,6 +1,5 @@
-import { ComponentType, RefObject } from 'react';
-
-import { IconTitle } from '@common/icon/types';
+import { IconTitle } from '@/components/home/icon';
+import { ReactNode, RefObject } from 'react';
 
 export type TitleBarProps = {
   title: IconTitle;
@@ -8,11 +7,12 @@ export type TitleBarProps = {
   ref: RefObject<HTMLDivElement | null>;
 };
 
-type WindowFrameProps = {
+export type WindowData = {
   title: IconTitle;
   width: number;
   height: number;
-  content: ComponentType;
 };
+
+type WindowFrameProps = WindowData & { content: ReactNode };
 
 export default WindowFrameProps;
