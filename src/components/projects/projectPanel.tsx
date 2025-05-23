@@ -19,7 +19,7 @@ const ProjectPanel = ({ projects }: { projects: Project[] }) => {
         selectedTitle={selectedTitle}
         setSelectedTitle={setSelectedTitle}
       />
-      <div className="grow w-full px-4 pt-2 border-t border-zinc-950 bg-white overflow-y-auto">
+      <div className="w-full h-full z-0 px-4 pt-2 mt-[27px] border-t border-zinc-950 bg-white overflow-y-auto">
         {selectedProject && <ProjectDetails selectedProject={selectedProject} />}
       </div>
     </div>

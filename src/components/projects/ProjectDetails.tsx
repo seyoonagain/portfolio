@@ -24,9 +24,9 @@ const ProjectDetails = ({
   const links = [github, demo];
 
   return (
-    <div className="flex flex-col gap-6 w-full h-full">
-      <div className="flex gap-4">
-        <div className="flex flex-col items-center gap-4 w-2/5">
+    <div className="flex flex-col gap-6 w-full">
+      <div className="flex flex-col-reverse sm:flex-row gap-4">
+        <div className="flex flex-col items-center gap-4 w-full sm:w-2/5">
           <div className="relative w-full aspect-project">
             <Image
               className="border border-zinc-950 bg-white object-cover saturate-0 hover:saturate-100 transition ease-in-out duration-700"
@@ -49,12 +49,14 @@ const ProjectDetails = ({
           </div>
         </div>
 
-        <div className="flex flex-col w-3/5">
-          <h2 className="font-galmuri9 text-2xl lg:text-3xl tracking-tighter">{description}</h2>
-          <p className="hidden sm:block font-galmuri14 text-xs">
+        <div className="flex flex-col gap-1 w-full sm:w-3/5">
+          <h2 className="font-galmuri9 text-2xl lg:text-3xl text-center sm:text-left tracking-tighter">
+            {description}
+          </h2>
+          <p className="block font-galmuri14 text-xs text-center sm:text-left">
             ( {team ? title : '개인 프로젝트'} )
           </p>
-          <div className="flex flex-col justify-end gap-1 grow pb-10 font-galmuri11">
+          <div className="flex flex-col justify-end gap-1 grow sm:pb-10 my-4 font-galmuri11">
             <div className="flex items-center text-sm">
               <p>기간:{'\xa0'}</p>
               <DateFormatter dateString={startedAt} />
