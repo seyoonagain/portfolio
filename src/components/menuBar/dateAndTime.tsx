@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 
 import { DAYS, MONTHS } from './constants';
 
-const Clock = () => {
+const DateAndTime = () => {
   const [dateAndTime, setDateAndTime] = useState<string>('');
   const [time, setTime] = useState<string>('');
 
@@ -45,4 +45,4 @@ const Clock = () => {
   );
 };
 
-export default Clock;
+export default DateAndTime;

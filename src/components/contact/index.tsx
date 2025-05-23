@@ -6,7 +6,7 @@ import useContactStore from '@/stores/contactStore';
 import usePopupStore from '@/stores/popupStore';
 
 import { CONTACT_INFO } from './constants';
-import ContactItem from './ContactItem';
+import ContactMethod from './contactMethod';
 
 const Contact = () => {
   const { unselectContactItem } = useContactStore();
@@ -28,7 +28,7 @@ const Contact = () => {
             <td className="">Details</td>
           </tr>
           {CONTACT_INFO.map(contact => (
-            <ContactItem key={contact.value} label={contact.label} value={contact.value} />
+            <ContactMethod key={contact.value} label={contact.label} value={contact.value} />
           ))}
         </tbody>
       </table>

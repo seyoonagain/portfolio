@@ -11,7 +11,7 @@ import useWindowStore from '@/stores/windowStore';
 
 import { ContactItemProps } from './types';
 
-const ContactItem = ({ label, value }: ContactItemProps) => {
+const ContactMethod = ({ label, value }: ContactItemProps) => {
   const { activeWindow, closeWindow, openWindow, activateWindow } = useWindowStore();
   const { selectContactItem, selectedContactItem } = useContactStore();
   const { showPopup, isPoppedUp } = usePopupStore();
@@ -103,4 +103,4 @@ const ContactItem = ({ label, value }: ContactItemProps) => {
   );
 };
 
-export default ContactItem;
+export default ContactMethod;

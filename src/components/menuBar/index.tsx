@@ -1,5 +1,5 @@
-import Clock from './Clock';
 import { MENU_LIST } from './constants';
+import DateAndTime from './dateAndTime';
 
 const MenuBar = () => {
   return (
@@ -11,7 +11,7 @@ const MenuBar = () => {
           </span>
         ))}
       </nav>
-      <Clock />
+      <DateAndTime />
     </header>
   );
 };

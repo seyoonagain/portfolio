@@ -5,7 +5,7 @@ import DateFormatter from '@/components/projects/dateFormatter';
 import { Project } from '@/interfaces/project';
 import calculateDurationWeeks from '@/utils/calculateDurationWeeks';
 
-const ProjectDetails = ({
+const ProjectDetail = ({
   selectedProject: {
     content,
     image,
@@ -81,4 +81,4 @@ const ProjectDetails = ({
   );
 };
 
-export default ProjectDetails;
+export default ProjectDetail;
