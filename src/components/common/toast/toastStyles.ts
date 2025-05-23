@@ -10,7 +10,7 @@ export const toastStyles = cva(
       },
       type: {
         success: '',
-        fail: '',
+        fail: 'text-red-700',
       },
     },
   },
