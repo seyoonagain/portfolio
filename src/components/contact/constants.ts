@@ -1,4 +1,4 @@
-import { ContactConfirmType, ContactsMethod } from './types';
+import { ContactsMethod } from './types';
 
 export const CONTACT_INFO = [
   {
@@ -11,7 +11,7 @@ export const CONTACT_INFO = [
   },
   {
     label: 'GitHub',
-    value: 'seyoonagain',
+    value: 'https://github.com/seyoonagain',
   },
   {
     label: 'LinkedIn',
@@ -23,36 +23,10 @@ export const CONTACT_INFO = [
   },
 ] as const;
 
-export const CONTACT_CONFIRM: Record<ContactsMethod, ContactConfirmType> = {
-  Email: {
-    text: '이메일을 전송하시겠습니까?',
-    action: { sendEmail: () => {} },
-  },
-  Mobile: {
-    text: '번호를 복사하시겠습니까?',
-    action: {
-      copy: () => {
-        return new Promise((resolve, reject) => {
-          try {
-            navigator.clipboard.writeText('01075672005');
-            resolve();
-          } catch (error) {
-            reject(error);
-          }
-        });
-      },
-    },
-  },
-  GitHub: {
-    text: 'GitHub 프로필로 이동하시겠습니까?',
-    action: { link: 'https://github.com/seyoonagain' },
-  },
-  LinkedIn: {
-    text: 'LinkedIn 프로필로 이동하시겠습니까?',
-    action: { link: 'https://www.linkedin.com/in/seyoonagain' },
-  },
-  Blog: {
-    text: '블로그로 이동하시겠습니까?',
-    action: { link: 'https://annyeonghaseyoon.vercel.app' },
-  },
+export const CONTACT_CONFIRM_MESSAGES: Record<ContactsMethod, string> = {
+  Email: '이메일을 전송하시겠습니까?',
+  Mobile: '번호를 복사하시겠습니까?',
+  GitHub: 'GitHub 프로필로 이동하시겠습니까?',
+  LinkedIn: 'LinkedIn 프로필로 이동하시겠습니까?',
+  Blog: '블로그로 이동하시겠습니까?',
 } as const;

@@ -3,14 +3,20 @@
 import { KeyboardEvent, useRef, useState } from 'react';
 import clsx from 'clsx';
 
+import { CONTACT_CONFIRM_MESSAGES, CONTACT_INFO } from '@/components/contact/constants';
 import useContactStore from '@/stores/contactStore';
+import usePopupStore from '@/stores/popupStore';
 import useWindowStore from '@/stores/windowStore';
 
 import { ContactItemProps } from './types';
+import useToast from '@/hooks/useToast';
 
 const ContactItem = ({ label, value }: ContactItemProps) => {
-  const { activeWindow, closeWindow } = useWindowStore();
-  const { selectContactItem, selectedContactItem, setContactItem, isPoppedUp } = useContactStore();
+  const { activeWindow, closeWindow, openWindow, activateWindow } = useWindowStore();
+  const { selectContactItem, selectedContactItem } = useContactStore();
+  const { showPopup, isPoppedUp } = usePopupStore();
+
+  const { toast } = useToast();
 
   const itemRef = useRef<HTMLTableRowElement | null>(null);
   const [nextItem, setNextItem] = useState<HTMLTableRowElement | null>(null);
@@ -18,6 +24,34 @@ const ContactItem = ({ label, value }: ContactItemProps) => {
   const handleClickContactItem = (e: React.MouseEvent<HTMLTableRowElement, MouseEvent>) => {
     e.stopPropagation();
     selectContactItem(label);
+
+    showPopup({
+      text: CONTACT_CONFIRM_MESSAGES[label],
+
+      confirm: () => {
+        if (label === 'Mobile') {
+          new Promise<void>((resolve, reject) => {
+            try {
+              navigator.clipboard.writeText('01075672005');
+              resolve();
+            } catch (error) {
+              reject(error);
+            }
+          })
+            .then(() => toast({ message: '번호가 클립보드에 복사되었습니다.' }))
+            .catch(() => toast({ type: 'fail', message: '번호 복사에 실패하였습니다.' }));
+        }
+
+        if (label === 'Blog' || label === 'GitHub' || label === 'LinkedIn') {
+          window.open(CONTACT_INFO.find(contact => contact.label === label)?.value, '_blank');
+        }
+
+        if (label === 'Email') {
+          openWindow('Email');
+          activateWindow('Email');
+        }
+      },
+    });
   };
 
   const handleKeyDown = (e: KeyboardEvent) => {
@@ -25,7 +59,7 @@ const ContactItem = ({ label, value }: ContactItemProps) => {
       case 'Escape':
         e.preventDefault();
         closeWindow('Contact');
-        setContactItem(null);
+        selectContactItem(null);
         break;
 
       case 'Enter':
@@ -56,7 +90,7 @@ const ContactItem = ({ label, value }: ContactItemProps) => {
       ref={itemRef}
       tabIndex={activeWindow === 'Contact' && !isPoppedUp ? 0 : -1}
       onKeyDown={handleKeyDown}
-      onFocus={() => setContactItem(label)}
+      onFocus={() => selectContactItem(label)}
       className={clsx(
         'h-8',
         selectedContactItem === label ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-950',

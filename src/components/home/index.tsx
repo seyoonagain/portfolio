@@ -4,11 +4,12 @@ import Confirm from '@common/confirm';
 import WindowFrame from '@common/windowFrame';
 import { ICON_INFO } from '@/components/home/constants';
 import Icon, { IconTitle } from '@/components/home/icon';
-import useContactStore from '@/stores/contactStore';
+
+import usePopupStore from '@/stores/popupStore';
 import useWindowStore from '@/stores/windowStore';
 
 const Home = ({ serverWindow }: { serverWindow: Record<string, React.ReactNode> }) => {
-  const { isPoppedUp, selectedContactItem } = useContactStore();
+  const { isPoppedUp } = usePopupStore();
   const { windowsOpen } = useWindowStore();
 
   return (
@@ -25,7 +26,7 @@ const Home = ({ serverWindow }: { serverWindow: Record<string, React.ReactNode> 
         })}
       </div>
 
-      {selectedContactItem && isPoppedUp && <Confirm method={selectedContactItem} />}
+      {isPoppedUp && <Confirm />}
     </div>
   );
 };

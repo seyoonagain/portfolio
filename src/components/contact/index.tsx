@@ -6,9 +6,11 @@ import useContactStore from '@/stores/contactStore';
 
 import { CONTACT_INFO } from './constants';
 import ContactItem from './ContactItem';
+import usePopupStore from '@/stores/popupStore';
 
 const Contact = () => {
-  const { unselectContactItem, isPoppedUp } = useContactStore();
+  const { unselectContactItem } = useContactStore();
+  const { isPoppedUp } = usePopupStore();
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const Contact = () => {
   }, [isPoppedUp]);
 
   return (
-    <div ref={ref} className="w-full h-full" onClick={() => unselectContactItem()}>
+    <div ref={ref} className="w-full h-full overflow-hidden" onClick={() => unselectContactItem()}>
       <table className="w-full">
         <tbody>
           <tr className="h-6 border-b-[3px] border-double border-zinc-950 font-chicago leading-none">

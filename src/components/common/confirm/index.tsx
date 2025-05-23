@@ -3,37 +3,26 @@
 import { useEffect, useRef } from 'react';
 
 import Button from '@common/button';
-import { CONTACT_CONFIRM } from '@/components/contact/constants';
 import useDraggable from '@/hooks/useDraggable';
-import useToast from '@/hooks/useToast';
-import useContactStore from '@/stores/contactStore';
+import usePopupStore from '@/stores/popupStore';
 
-import ConfirmProps from './types';
-
-const Confirm = ({ method }: ConfirmProps) => {
+const Confirm = () => {
   const { elRef } = useDraggable();
+
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const cancelButtonRef = useRef<HTMLButtonElement | null>(null);
   const confirmButtonRef = useRef<HTMLButtonElement | null>(null);
-  const { closePopUp, isPoppedUp } = useContactStore();
-  const { toast } = useToast();
+
+  const { text, confirm, closePopup, isPoppedUp } = usePopupStore();
 
   const handleConfirm = () => {
-    const action = CONTACT_CONFIRM[method].action;
-    if (action && action.copy) {
-      action
-        .copy()
-        .then(() => toast({ message: '번호가 클립보드에 복사되었습니다.' }))
-        .catch(() => toast({ message: '번호 복사에 실패하였습니다.' }));
-    } else if (action && action.link) {
-      window.open(action.link, '_blank');
-    }
-    closePopUp();
+    confirm();
+    closePopup();
     previousFocusRef.current?.focus();
   };
 
   const handleCancel = () => {
-    closePopUp();
+    closePopup();
     previousFocusRef.current?.focus();
   };
 
@@ -98,7 +87,7 @@ const Confirm = ({ method }: ConfirmProps) => {
       <div className="flex gap-3 w-full">
         <div className="shrink-0 relative size-12 bg-alert bg-center bg-contain bg-no-repeat" />
         <p id="confirm-title" className="font-galmuri9 text-sm">
-          {CONTACT_CONFIRM[method].text}
+          {text}
         </p>
       </div>
       <div className="flex gap-5 self-end">
