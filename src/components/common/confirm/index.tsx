@@ -81,7 +81,7 @@ const Confirm = () => {
       role="dialog"
       aria-modal={true}
       aria-labelledby="confirm-title"
-      className="flex flex-col justify-between absolute z-50 w-96 h-44 p-5 border-2 border-zinc-950 bg-white outline outline-1 outline-offset-2 outline-zinc-950"
+      className="flex flex-col justify-between absolute z-50 w-full max-w-96 h-44 p-5 border-2 border-zinc-950 bg-white outline outline-1 outline-offset-2 outline-zinc-950"
       style={{ boxShadow: '0 0 0 2px white' }}
     >
       <div className="flex gap-3 w-full">
