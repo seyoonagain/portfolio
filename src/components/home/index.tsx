@@ -1,13 +1,11 @@
 'use client';
 
 import Confirm from '@common/confirm';
-import Icon, { IconTitle } from '@/components/home/icon';
-import { ICON_INFO } from '@/components/home/constants';
 import WindowFrame from '@common/windowFrame';
-
+import { ICON_INFO } from '@/components/home/constants';
+import Icon, { IconTitle } from '@/components/home/icon';
 import useContactStore from '@/stores/contactStore';
 import useWindowStore from '@/stores/windowStore';
-import { WINDOW_CONTENT } from '@/components/common/windowFrame/constants';
 
 const Home = ({ serverWindow }: { serverWindow: Record<string, React.ReactNode> }) => {
   const { isPoppedUp, selectedContactItem } = useContactStore();
@@ -20,23 +18,13 @@ const Home = ({ serverWindow }: { serverWindow: Record<string, React.ReactNode> 
           <Icon key={title} file={file} title={title} top={top} left={left} />
         ))}
 
-        {windowsOpen.map((title: IconTitle) => {
-          const window = WINDOW_CONTENT[title];
+        {windowsOpen.map((title: IconTitle | 'Email') => {
           const content = serverWindow[title];
 
-          return (
-            content && (
-              <WindowFrame
-                key={title}
-                title={window.title}
-                width={window.width}
-                height={window.height}
-                content={content}
-              />
-            )
-          );
+          return content && <WindowFrame key={title} title={title} content={content} />;
         })}
       </div>
+
       {selectedContactItem && isPoppedUp && <Confirm method={selectedContactItem} />}
     </div>
   );

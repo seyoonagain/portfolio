@@ -1,11 +1,11 @@
 import TitleBar from '@/components/common/windowFrame/TitleBar';
+import windowStyles from '@/components/common/windowFrame/windowStyles';
 import useDraggable from '@/hooks/useDraggable';
 import useWindowStore from '@/stores/windowStore';
 
-import { WINDOW_STYLE } from './constants';
 import WindowFrameProps from './types';
 
-const WindowFrame = ({ title, width, height, content }: WindowFrameProps) => {
+const WindowFrame = ({ title, content }: WindowFrameProps) => {
   const { elRef, grabRef } = useDraggable();
   const { activateWindow, getWindowZIndex } = useWindowStore();
 
@@ -13,14 +13,10 @@ const WindowFrame = ({ title, width, height, content }: WindowFrameProps) => {
     <div
       ref={elRef}
       onMouseDown={() => activateWindow(title)}
-      className={WINDOW_STYLE}
-      style={{
-        width: `${width}px`,
-        height: `${height}px`,
-        zIndex: `${getWindowZIndex(title)}`,
-      }}
+      className={windowStyles({ title })}
+      style={{ zIndex: `${getWindowZIndex(title)}` }}
     >
-      <TitleBar title={title} width={width} ref={grabRef} />
+      <TitleBar title={title} ref={grabRef} />
       <section className="grow relative w-full h-full overflow-y-auto">{content}</section>
     </div>
   );

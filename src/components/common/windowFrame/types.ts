@@ -2,17 +2,13 @@ import { IconTitle } from '@/components/home/icon';
 import { ReactNode, RefObject } from 'react';
 
 export type TitleBarProps = {
-  title: IconTitle;
-  width: number;
+  title: IconTitle | 'Email';
   ref: RefObject<HTMLDivElement | null>;
 };
 
-export type WindowData = {
-  title: IconTitle;
-  width: number;
-  height: number;
+type WindowFrameProps = {
+  title: IconTitle | 'Email';
+  content: ReactNode;
 };
-
-type WindowFrameProps = WindowData & { content: ReactNode };
 
 export default WindowFrameProps;

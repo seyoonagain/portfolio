@@ -5,7 +5,7 @@ import useWindowStore from '@/stores/windowStore';
 
 import { TitleBarProps } from './types';
 
-const TitleBar = ({ title, width, ref }: TitleBarProps) => {
+const TitleBar = ({ title, ref }: TitleBarProps) => {
   const { closeWindow, activeWindow } = useWindowStore();
   const { unselectContactItem } = useContactStore();
 
@@ -20,10 +20,9 @@ const TitleBar = ({ title, width, ref }: TitleBarProps) => {
     <div
       ref={ref}
       className={clsx(
-        'flex items-center relative h-5 pl-2 border-b border-zinc-950 bg-center bg-repeat-x bg-white cursor-default',
+        'flex items-center relative w-full h-5 pl-2 border-b border-zinc-950 bg-center bg-repeat-x bg-white cursor-default',
         activeWindow === title && 'bg-[url(/images/titleBarBg.svg)]',
       )}
-      style={{ width: `${width}px` }}
     >
       {activeWindow === title && (
         <div
