@@ -1,5 +1,6 @@
-import ABOUT_ME from '@/components/aboutMe/constants';
 import Image from 'next/image';
+
+import ABOUT_ME from '@/components/aboutMe/constants';
 
 const AboutMe = () => {
   return (

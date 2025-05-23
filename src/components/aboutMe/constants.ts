@@ -1,6 +1,6 @@
 import Cup from '@public/images/cup.svg';
-import Pencil from '@public/images/pencil.svg';
 import Glasses from '@public/images/glasses.svg';
+import Pencil from '@public/images/pencil.svg';
 import AboutMeItem from '@/components/aboutMe/types';
 
 const ABOUT_ME: AboutMeItem[] = [
