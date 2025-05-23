@@ -58,12 +58,13 @@ const ContactItem = ({ label, value }: ContactItemProps) => {
       onKeyDown={handleKeyDown}
       onFocus={() => setContactItem(label)}
       className={clsx(
+        'h-8',
         selectedContactItem === label ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-950',
       )}
       onClick={handleClickContactItem}
     >
       <td className="font-chicago">{label}</td>
-      <td className="font-geneva text-xl cursor-pointer">{value}</td>
+      <td className="font-chicago cursor-pointer">{value}</td>
     </tr>
   );
 };

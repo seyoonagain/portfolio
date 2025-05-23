@@ -1,4 +1,4 @@
-export type ContactsMethod = 'Email' | 'Mobile' | 'GitHub' | 'LinkedIn';
+export type ContactsMethod = 'Email' | 'Mobile' | 'GitHub' | 'LinkedIn' | 'Blog';
 
 export type ContactItemProps = {
   label: ContactsMethod;
@@ -7,5 +7,5 @@ export type ContactItemProps = {
 
 export type ContactConfirmType = {
   text: string;
-  action: { copy?: () => Promise<void>; link?: string };
+  action: { copy?: () => Promise<void>; link?: string; sendEmail?: () => void };
 };

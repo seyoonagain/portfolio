@@ -21,7 +21,7 @@ const Contact = () => {
     <div ref={ref} className="w-full h-full" onClick={() => unselectContactItem()}>
       <table className="w-full">
         <tbody>
-          <tr className="h-5 border-b-[3px] border-double border-zinc-950 font-geneva text-xl leading-none">
+          <tr className="h-6 border-b-[3px] border-double border-zinc-950 font-chicago leading-none">
             <td className="">Method</td>
             <td className="">Details</td>
           </tr>

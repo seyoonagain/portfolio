@@ -17,10 +17,17 @@ export const CONTACT_INFO = [
     label: 'LinkedIn',
     value: 'https://www.linkedin.com/in/seyoonagain',
   },
+  {
+    label: 'Blog',
+    value: 'https://annyeonghaseyoon.vercel.app',
+  },
 ] as const;
 
 export const CONTACT_CONFIRM: Record<ContactsMethod, ContactConfirmType> = {
-  Email: { text: '이메일을 전송하시겠습니까?', action: {} },
+  Email: {
+    text: '이메일을 전송하시겠습니까?',
+    action: { sendEmail: () => {} },
+  },
   Mobile: {
     text: '번호를 복사하시겠습니까?',
     action: {
@@ -43,5 +50,9 @@ export const CONTACT_CONFIRM: Record<ContactsMethod, ContactConfirmType> = {
   LinkedIn: {
     text: 'LinkedIn 프로필로 이동하시겠습니까?',
     action: { link: 'https://www.linkedin.com/in/seyoonagain' },
+  },
+  Blog: {
+    text: '블로그로 이동하시겠습니까?',
+    action: { link: 'https://annyeonghaseyoon.vercel.app' },
   },
 } as const;
