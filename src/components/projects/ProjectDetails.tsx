@@ -32,6 +32,7 @@ const ProjectDetails = ({
               className="border border-zinc-950 bg-white object-cover saturate-0 hover:saturate-100 transition ease-in-out duration-700"
               src={image}
               alt={title}
+              sizes="640px"
               fill
               priority
             />
