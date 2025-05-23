@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
+import Button from '@/components/common/button';
 import DateFormatter from '@/components/projects/dateFormatter';
 import { Project } from '@/interfaces/project';
-import Button from '@/components/common/button';
 import calculateDurationWeeks from '@/utils/calculateDurationWeeks';
 
 const ProjectDetails = ({

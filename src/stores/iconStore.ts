@@ -1,5 +1,6 @@
-import { IconTitle } from '@/components/home/icon';
 import { create } from 'zustand';
+
+import { IconTitle } from '@/components/home/icon';
 
 type IconState = {
   activeIcon: IconTitle | null;

@@ -4,7 +4,6 @@ import Confirm from '@common/confirm';
 import WindowFrame from '@common/windowFrame';
 import { ICON_INFO } from '@/components/home/constants';
 import Icon, { IconTitle } from '@/components/home/icon';
-
 import usePopupStore from '@/stores/popupStore';
 import useWindowStore from '@/stores/windowStore';
 

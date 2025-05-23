@@ -1,5 +1,6 @@
-import { IconTitle } from '@/components/home/icon';
 import { ReactNode, RefObject } from 'react';
+
+import { IconTitle } from '@/components/home/icon';
 
 export type TitleBarProps = {
   title: IconTitle | 'Email';

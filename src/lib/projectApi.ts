@@ -1,7 +1,8 @@
-import { Project } from '@/interfaces/project';
 import fs from 'fs';
 import matter from 'gray-matter';
 import { join } from 'path';
+
+import { Project } from '@/interfaces/project';
 
 const projectsDirectory = join(process.cwd(), '_projects');
 

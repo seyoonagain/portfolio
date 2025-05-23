@@ -3,10 +3,10 @@
 import { useEffect, useRef } from 'react';
 
 import useContactStore from '@/stores/contactStore';
+import usePopupStore from '@/stores/popupStore';
 
 import { CONTACT_INFO } from './constants';
 import ContactItem from './ContactItem';
-import usePopupStore from '@/stores/popupStore';
 
 const Contact = () => {
   const { unselectContactItem } = useContactStore();

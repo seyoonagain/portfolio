@@ -1,10 +1,10 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useEffect,useRef, useState } from 'react';
 
+import ProjectDetails from '@/components/projects/ProjectDetails';
 import ProjectTab from '@/components/projects/projectTab';
 import { Project } from '@/interfaces/project';
-import ProjectDetails from '@/components/projects/ProjectDetails';
 
 const ProjectPanel = ({ projects }: { projects: Project[] }) => {
   const projectTitles = projects.map(project => project.title);

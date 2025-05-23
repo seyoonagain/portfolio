@@ -1,6 +1,6 @@
 import ProjectPanel from '@/components/projects/projectPanel';
-
 import { getAllProjects } from '@/lib/projectApi';
+
 import markdownToHtml from '../../lib/markdownToHtml';
 
 const Projects = async () => {

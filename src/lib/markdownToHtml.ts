@@ -1,7 +1,7 @@
-import { remark } from 'remark';
-import remarkRehype from 'remark-rehype';
 import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
+import { remark } from 'remark';
+import remarkRehype from 'remark-rehype';
 
 const markdownToHtml = async (markdown: string): Promise<string> => {
   const result = await remark()

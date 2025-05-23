@@ -4,12 +4,12 @@ import { KeyboardEvent, useRef, useState } from 'react';
 import clsx from 'clsx';
 
 import { CONTACT_CONFIRM_MESSAGES, CONTACT_INFO } from '@/components/contact/constants';
+import useToast from '@/hooks/useToast';
 import useContactStore from '@/stores/contactStore';
 import usePopupStore from '@/stores/popupStore';
 import useWindowStore from '@/stores/windowStore';
 
 import { ContactItemProps } from './types';
-import useToast from '@/hooks/useToast';
 
 const ContactItem = ({ label, value }: ContactItemProps) => {
   const { activeWindow, closeWindow, openWindow, activateWindow } = useWindowStore();

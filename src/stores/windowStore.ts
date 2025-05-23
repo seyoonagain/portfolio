@@ -1,5 +1,6 @@
-import { IconTitle } from '@/components/home/icon';
 import { create } from 'zustand';
+
+import { IconTitle } from '@/components/home/icon';
 
 type WindowState = {
   windowsOpen: (IconTitle | 'Email')[];
