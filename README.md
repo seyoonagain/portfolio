@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Macintosh Portfolio
 
-## Getting Started
+<div align=center>
+<img width="700" alt="Screenshot" src="https://github.com/user-attachments/assets/ff34ebab-ead7-4eb5-8df8-3418e6d7f519" />
 
-First, run the development server:
+[Demo ↗](https://seyoon-portfolio.vercel.app)  
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Macintosh로부터 영감을 받은 포트폴리오 사이트입니다.   
+A portfolio site inspired by the classic Macintosh UI.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 기술 스택 / Tech Stacks
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frameworks & Languages**  
+  <img src="https://img.shields.io/badge/typescript-000000?style=for-the-badge&logo=typescript&logoColor=3178C6">
+  <img src="https://img.shields.io/badge/react-000000?style=for-the-badge&logo=react&logoColor=61DAFB">
+  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=ffffff">
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Style**  
+  <img src="https://img.shields.io/badge/tailwindcss-000000?style=for-the-badge&logo=tailwindcss&logoColor=06B6D4">
 
-## Learn More
+- **Package Manager**  
+  <img src="https://img.shields.io/badge/pnpm-000000?style=for-the-badge&logo=pnpm&logoColor=F69220">
 
-To learn more about Next.js, take a look at the following resources:
+- **Markdown Parsers**  
+  <img src="https://img.shields.io/badge/remark-000000?style=for-the-badge&logo=remark&logoColor=ffffff">
+  <img src="https://img.shields.io/badge/rehype-000000?style=for-the-badge">
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Animation**  
+  <img src="https://img.shields.io/badge/framer_motion-000000?style=for-the-badge&logo=framer&logoColor=0055FF">
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **State Management**  
+  <img src="https://img.shields.io/badge/zustand-000000?style=for-the-badge">
 
-## Deploy on Vercel
+- **Development Tools**  
+  <img src="https://img.shields.io/badge/eslint-000000?style=for-the-badge&logo=eslint&logoColor=4B32C3">
+  <img src="https://img.shields.io/badge/prettier-000000?style=for-the-badge&logo=prettier&logoColor=F7B93E">
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 기능 / Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Zustand 기반의 데스크탑 스타일 다중 창 인터페이스**  
+  Desktop-style multi-window interface with dynamic `z-index` control,   
+  built using Zustand for intuitive state-driven window management
+
+- **Next.js의 App Router를 활용한 포스트 및 페이지 라우팅 구조**  
+  Posts and pages organized using the App Router of Next.js
+
+- **Tailwind CSS로 반응형 및 접근성 높은 UI 구성**  
+  Responsive and accessible UI with Tailwind CSS
+
+- **`remark`와 `rehype`를 이용한 마크다운 → HTML 파싱**  
+  Markdown to HTML parsing using `remark` and `rehype`
+
+- **EmailJS를 이용한 이메일 전송 기능**  
+  Email sending functionality powered by EmailJS
