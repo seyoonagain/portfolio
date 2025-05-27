@@ -1,12 +1,13 @@
 'use client';
 
+import clsx from 'clsx';
+
 import Confirm from '@common/confirm';
 import WindowFrame from '@common/windowFrame';
 import { ICON_INFO } from '@/components/home/constants';
 import Icon, { IconTitle } from '@/components/home/icon';
 import usePopupStore from '@/stores/popupStore';
 import useWindowStore from '@/stores/windowStore';
-import clsx from 'clsx';
 
 const Home = ({ serverWindow }: { serverWindow: Record<string, React.ReactNode> }) => {
   const { isPoppedUp } = usePopupStore();
