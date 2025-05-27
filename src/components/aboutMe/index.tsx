@@ -4,7 +4,7 @@ import ABOUT_ME from '@/components/aboutMe/constants';
 
 const AboutMe = () => {
   return (
-    <div className="flex flex-col justify-between items-center relative h-full p-5 font-galmuri14">
+    <div className="flex flex-col items-center gap-6 relative p-5 font-galmuri14">
       <h2 className="font-chicago text-6xl">Hello, world!</h2>
 
       <h3 className="font-galmuri11 text-base text-center tracking-tighter">

@@ -5,9 +5,10 @@ const windowStyles = cva(
   {
     variants: {
       title: {
-        'About me': 'sm:max-w-xl h-[612px]',
-        Contact: 'sm:max-w-md h-[202px]',
-        Projects: 'sm:max-w-xl h-[612px] sm:h-[712px] md:max-w-2xl lg:max-w-4xl',
+        'About me': 'top-7 sm:top-auto sm:max-w-xl h-[calc(100%-28px)] sm:h-[712px]',
+        Contact: 'max-w-md h-[202px]',
+        Projects:
+          'top-7 sm:top-auto sm:max-w-xl md:max-w-3xl lg:max-w-5xl h-[calc(100%-28px)] sm:h-[712px] lg:h-[896px]',
         Email: 'sm:max-w-lg h-[480px]',
       },
     },

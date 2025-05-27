@@ -6,6 +6,7 @@ import { ICON_INFO } from '@/components/home/constants';
 import Icon, { IconTitle } from '@/components/home/icon';
 import usePopupStore from '@/stores/popupStore';
 import useWindowStore from '@/stores/windowStore';
+import clsx from 'clsx';
 
 const Home = ({ serverWindow }: { serverWindow: Record<string, React.ReactNode> }) => {
   const { isPoppedUp } = usePopupStore();
@@ -13,7 +14,12 @@ const Home = ({ serverWindow }: { serverWindow: Record<string, React.ReactNode> 
 
   return (
     <div className="flex justify-center items-center w-full h-full">
-      <div className={`flex justify-center items-center ${isPoppedUp && 'pointer-events-none'}`}>
+      <div
+        className={clsx(
+          'flex justify-center items-center w-full h-full',
+          isPoppedUp && 'pointer-events-none',
+        )}
+      >
         {ICON_INFO.map(({ title, file, top, left }) => (
           <Icon key={title} file={file} title={title} top={top} left={left} />
         ))}

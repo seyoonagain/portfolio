@@ -20,9 +20,9 @@ const RootLayout = ({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body>
+      <body className="flex flex-col w-screen h-screen">
         <MenuBar />
-        <section className="flex w-full p-5 mt-7 bg-default bg-repeat bg-center">
+        <section className="flex grow w-full h-full p-5 bg-default bg-repeat bg-center">
           {children}
         </section>
         <Toast />
