@@ -20,9 +20,13 @@ const AboutMe = () => {
             <Image src={icon} alt={`${heading} 아이콘`} />
             <h4 className="font-galmuri9 text-base">{heading}</h4>
           </div>
-          <p className="p-2 border border-r-2 border-b-2 border-zinc-950 rounded-md text-sm text-justify leading-6">
-            {content}
-          </p>
+          <div className="p-2 border border-r-2 border-b-2 border-zinc-950 rounded-md font-galmuri14 text-xs text-justify tracking-tight leading-7">
+            {content.split('\n').map(paragraph => (
+              <p key={paragraph} className="text-wrap indent-2">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </section>
       ))}
     </div>
