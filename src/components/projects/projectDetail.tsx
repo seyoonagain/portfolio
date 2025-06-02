@@ -17,6 +17,7 @@ const ProjectDetail = ({
     demo,
     startedAt,
     endedAt,
+    isDone,
   },
 }: {
   selectedProject: Project;
@@ -24,7 +25,10 @@ const ProjectDetail = ({
   const links = [github, demo];
 
   return (
-    <div className="flex flex-col gap-6 w-full">
+    <div className="flex flex-col w-full">
+      <p className="font-silver text-center sm:text-left text-lg">
+        ( {team ? title : '개인 프로젝트'} )
+      </p>
       <div className="flex flex-col-reverse sm:flex-row gap-4">
         <div className="flex flex-col items-center gap-4 w-full sm:w-2/5">
           <div className="relative w-full aspect-project">
@@ -50,31 +54,39 @@ const ProjectDetail = ({
           </div>
         </div>
 
-        <div className="flex flex-col gap-1 w-full sm:w-3/5">
-          <h2 className="font-galmuri9 text-2xl lg:text-3xl text-center sm:text-left tracking-tighter">
-            {description}
+        <div className="flex flex-col w-full sm:w-3/5">
+          <h2 className="font-chicago text-3xl lg:text-4xl text-center sm:text-left tracking-tighter">
+            {title}
           </h2>
-          <p className="block font-galmuri14 text-xs text-center sm:text-left">
-            ( {team ? title : '개인 프로젝트'} )
-          </p>
-          <div className="flex flex-col justify-end gap-1 grow sm:pb-10 my-4 font-galmuri11">
-            <div className="flex items-center text-sm">
-              <p>기간:{'\xa0'}</p>
+          <p className="block font-silver text-xl text-center sm:text-left">{description}</p>
+          <div className="flex flex-col justify-end gap-1 grow sm:pb-10 my-4 font-lanaPixel text-sm sm:text-base tracking-wide">
+            <div className="flex items-center">
               <DateFormatter dateString={startedAt} />
               {'\xa0-\xa0'}
-              <DateFormatter dateString={endedAt} />
-              {'\xa0'}({calculateDurationWeeks(startedAt, endedAt)})
+              {isDone && (
+                <>
+                  <DateFormatter dateString={endedAt} />
+                  {'\xa0'}({calculateDurationWeeks(startedAt, endedAt)})
+                </>
+              )}
             </div>
 
-            <div className="flex items-center text-sm">
-              <p className="tracking-tight">{`기술스택: ${techStack.join(', ')}`}</p>
+            <div className="flex items-center gap-1 flex-wrap">
+              {techStack.map(tech => (
+                <p
+                  key={`${title} - ${tech}`}
+                  className="flex items-center h-5 px-2 border border-zinc-950 rounded-md text-sm"
+                >
+                  {tech}
+                </p>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
       <div
-        className="markdown font-galmuri14 text-sm"
+        className="markdown py-8 font-silver text-2xl"
         dangerouslySetInnerHTML={{ __html: content }}
       />
     </div>

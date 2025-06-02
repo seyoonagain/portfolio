@@ -7,10 +7,10 @@ import ProjectTab from '@/components/projects/projectTab';
 import { Project } from '@/interfaces/project';
 
 const ProjectPanel = ({ projects }: { projects: Project[] }) => {
-  const projectTitles = projects.map(project => project.title);
+  const projectTitles = projects.map(project => project.tab);
   const [selectedTitle, setSelectedTitle] = useState(projectTitles[projects.length - 1]);
 
-  const selectedProject = projects.find(project => project.title === selectedTitle);
+  const selectedProject = projects.find(project => project.tab === selectedTitle);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 

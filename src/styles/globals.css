@@ -14,6 +14,16 @@
   src: url('/fonts/Monaco.ttf') format('truetype');
   font-style: normal;
 }
+@font-face {
+  font-family: 'silver';
+  src: url('/fonts/Silver.ttf') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'lanaPixel';
+  src: url('/fonts/LanaPixel.ttf') format('truetype');
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -45,18 +55,11 @@ td {
 /* markdown styles */
 
 .markdown {
-  @apply tracking-tight leading-8;
-}
-
-.markdown p,
-.markdown ul,
-.markdown ol,
-.markdown blockquote {
-  @apply py-2;
+  @apply tracking-normal leading-8;
 }
 
 .markdown li {
-  @apply relative;
+  @apply relative py-px;
 }
 
 .markdown ul > li {
@@ -72,11 +75,11 @@ td {
 }
 
 .markdown h2 {
-  @apply mt-6 border-b border-zinc-950 font-medium font-chicago text-2xl tracking-tighter;
+  @apply mt-6 mb-2 border-b border-zinc-950 font-medium font-chicago text-3xl tracking-tighter;
 }
 
 .markdown h3 {
-  @apply mt-4 text-base font-galmuri9;
+  @apply mt-4 text-3xl;
 }
 
 .markdown h4 {
@@ -84,11 +87,9 @@ td {
 }
 
 .markdown strong {
-  @apply font-semibold;
+  @apply font-medium;
 }
 
 .markdown code {
-  @apply px-1.5 rounded-lg bg-zinc-200;
-  counter-reset: step;
-  counter-increment: step 0;
+  @apply inline-block h-5 px-1.5 rounded-lg bg-zinc-200 font-normal font-silver;
 }
