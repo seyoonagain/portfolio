@@ -54,11 +54,13 @@ const ProjectDetail = ({
           </div>
         </div>
 
-        <div className="flex flex-col w-full sm:w-3/5">
+        <div className="flex flex-col gap-3 w-full sm:w-3/5">
           <h2 className="font-chicago text-3xl lg:text-4xl text-center sm:text-left tracking-tighter">
             {title}
           </h2>
-          <p className="block font-silver text-xl text-center sm:text-left">{description}</p>
+          <p className="block font-silver text-2xl text-center sm:text-left leading-5">
+            {description}
+          </p>
           <div className="flex flex-col justify-end gap-1 grow sm:pb-10 my-4 font-lanaPixel text-sm sm:text-base tracking-wide">
             <div className="flex items-center">
               <DateFormatter dateString={startedAt} />
