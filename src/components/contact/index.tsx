@@ -24,8 +24,8 @@ const Contact = () => {
       <table className="w-full">
         <tbody>
           <tr className="h-6 border-b-[3px] border-double border-zinc-950 font-chicago leading-none">
-            <td className="">Method</td>
-            <td className="">Details</td>
+            <td>Method</td>
+            <td>Details</td>
           </tr>
           {CONTACT_INFO.map(contact => (
             <ContactMethod key={contact.value} label={contact.label} value={contact.value} />

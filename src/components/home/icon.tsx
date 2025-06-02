@@ -1,14 +1,14 @@
 'use client';
 
-import { KeyboardEvent } from 'react';
 import Image, { StaticImageData } from 'next/image';
+import { KeyboardEvent } from 'react';
 
 import useDraggable from '@/hooks/useDraggable';
 import useOutsideClick from '@/hooks/useOutsideClick';
 import useIconStore from '@/stores/iconStore';
 import useWindowStore from '@/stores/windowStore';
 
-export type IconTitle = 'About me' | 'Contact' | 'Projects';
+export type IconTitle = 'About me' | 'Contact' | 'Projects' | 'Skills';
 
 export type IconProps = {
   title: IconTitle;
