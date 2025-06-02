@@ -1,8 +1,8 @@
-import { IconProps } from '@/components/home/icon';
 import doc from '@public/images/doc.svg';
 import linkAddresses from '@public/images/linkAddresses.svg';
 import macintoshHappy from '@public/images/macintoshHappy.svg';
 import save from '@public/images/save.svg';
+import { IconProps } from '@/components/home/icon';
 
 export const ICON_INFO: Array<IconProps> = [
   { title: 'About me', file: macintoshHappy, top: 48, left: 20 },

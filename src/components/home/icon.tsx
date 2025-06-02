@@ -1,7 +1,7 @@
 'use client';
 
-import Image, { StaticImageData } from 'next/image';
 import { KeyboardEvent } from 'react';
+import Image, { StaticImageData } from 'next/image';
 
 import useDraggable from '@/hooks/useDraggable';
 import useOutsideClick from '@/hooks/useOutsideClick';
