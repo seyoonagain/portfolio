@@ -14,13 +14,15 @@ export default {
         alert: `url('/images/alert.svg')`,
       },
       fontFamily: {
-        chicago: ['chicago'],
+        chicago: ['chicago', 'LanaPixel'],
         geneva: ['geneva'],
         monaco: ['monaco'],
         galmuri7: ['Galmuri7'],
         galmuri9: ['Galmuri9'],
         galmuri11: ['Galmuri11'],
         galmuri14: ['Galmuri14'],
+        silver: ['Silver'],
+        lanaPixel: ['LanaPixel'],
       },
       colors: {
         background: 'var(--background)',
