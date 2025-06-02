@@ -19,15 +19,13 @@ const useDraggable = (): UseDraggableReturn => {
     let offsetX: number, offsetY: number;
 
     const dragCalculator = (e: MouseEvent) => {
-      const left = e.clientX - offsetX;
-      const top = e.clientY - offsetY;
-      const minX = 0;
       const minY = 28;
-      const maxX = window.innerWidth - el.offsetWidth;
       const maxY = window.innerHeight - el.offsetHeight;
 
-      el.style.left = `${left < minX ? minX : left > maxX ? maxX : left}px`;
-      el.style.top = `${top < minY ? minY : top > maxY ? maxY : top}px`;
+      const top = Math.max(minY, Math.min(e.clientY - offsetY, maxY));
+
+      el.style.left = `${e.clientX - offsetX}px`;
+      el.style.top = `${top}px`;
     };
 
     const onMouseDown = (e: MouseEvent) => {
