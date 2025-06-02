@@ -1,20 +1,25 @@
 ---
-title: 포트폴리오
+title: Macintosh 포트폴리오
 team: false
-description: Macintosh 포트폴리오
+tab: 포트폴리오
+description: Macintosh Desktop UI를 구현한 포트폴리오용 웹 애플리케이션
 startedAt: 2024-12-10
 endedAt: 2025-05-24
 techStack: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Zustand']
 github: https://github.com/seyoonagain/portfolio
 demo: https://seyoon-portfolio.vercel.app
 image: /projects/portfolio.png
+isDone: false
 ---
 
 ## Responsibilities
 
-- 전체 UI/UX 디자인 및 구현
-- 서버 컴포넌트를 활용한 콘텐츠 모듈화 및 렌더링 구조 구현
-- 사용자 경험 최적화를 위한 커스텀 애니메이션 및 마이크로 인터랙션 적용
+- **서버 컴포넌트를 통한 렌더링 구조 최적화**  
+  서버에서 데이터 처리 후 클라이언트 컴포넌트로 전달해, 구조적 분리를 통한 성능 및 유지보수성 향상
+- **윈도우 계층 구조 구현**  
+  z-index를 활용하여 창 간의 계층 구조를 동적으로 처리, 가장 최근에 클릭한 창이 최상위로 올라오는 인터랙션 구현
+- **반응형 및 데스크탑 UI 구현**  
+  다양한 화면 크기에 최적화된 반응형 레이아웃 구현, 데스크탑 환경에서의 UI 요소 배치 최적화
 
 ## Improvements
 

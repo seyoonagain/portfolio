@@ -1,23 +1,30 @@
 ---
 title: 도르멍
 team: true
-description: 여행 경로 생성 서비스
+tab: 도르멍
+description: 제주도 여행객을 위한 테마 기반 일정 자동 생성 & 최단 동선 추천 서비스
 startedAt: 2024-12-18
 endedAt: 2025-01-16
 techStack:
-  ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Redux Toolkit', 'RTK Query', 'motion']
+  ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Redux Toolkit', 'RTK Query', 'Motion']
 github: https://github.com/Doreumung/Doreumung-FE
 demo: https://www.doreumung.site
 image: /projects/doreumung.png
+isDone: true
 ---
 
 ## Responsibilities
 
-- 웹소켓(`useWebSocket`)을 이용하여 좋아요 수 및 댓글의 실시간 업데이트 기능 구현
-- Next.js의 Middleware를 활용한 페이지 접근 제어 및 리디렉트 처리
-- Motion과 Swiper을 활용한 애니메이션 구현
-- WYSIWYG 텍스트 에디터 커스터마이징
-- React Hook Form과 Zod를 이용한 유효성 검사 적용 및 CRUD 기능 개발
+- **Figma를 활용한 UI 디자인 주도**  
+  사용자 경험을 고려한 레이아웃 구성 및 인터랙션 흐름을 직접 설계하고, 컴포넌트 단위로 구현까지 연결
+- **`useWebSocket`으로 실시간 좋아요/댓글 동기화**  
+  페이지 새로고침 없이도 사용자 간 인터랙션 상태가 즉시 반영되도록 웹소켓 기반 실시간 통신 처리
+- **Motion 및 Swiper을 이용한 애니메이션 구현**  
+  사용자의 몰입도를 높이기 위한 슬라이드 및 전환 애니메이션을 자연스럽고 매끄럽게 구현
+- **WYSIWYG 텍스트 에디터 커스터마이징**  
+  사용자가 후기 작성 시 다양한 스타일을 적용할 수 있도록, 텍스트 에디터의 툴바와 기능을 커스터마이징
+- **React Hook Form + Zod 기반 CRUD 구현**  
+  사용자 정보 및 후기 데이터를 안정적으로 관리할 수 있도록 클라이언트 측 폼 검증과 API 연동 로직 구현
 
 ## Improvements
 

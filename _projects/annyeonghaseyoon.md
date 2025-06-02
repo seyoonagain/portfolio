@@ -1,21 +1,25 @@
 ---
-title: 블로그
+title: 안녕하세윤
 team: false
-description: 개인 블로그
+tab: 블로그
+description: 개발 공부 기록하는 기술 블로그
 startedAt: 2025-04-23
 endedAt: 2025-05-24
 techStack: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Framer motion']
 github: https://github.com/seyoonagain/annyeonhaseyoon
 demo: https://annyeonghaseyoon.vercel.app
 image: /projects/annyeonghaseyoon.png
+isDone: false
 ---
 
 ## Responsibilities
 
-- 전체 UI/UX 디자인 및 반응형 레이아웃 구현
-- 서버 컴포넌트를 활용한 콘텐츠 모듈화 및 렌더링 구조 구현
-- `remark`와 `rehype`을 활용한 Markdown → HTML 렌더링 파이프라인 구축
-- 텍스트 회전, 손 흔들기, 마우스트래킹 명함 등 다양한 마이크로 인터랙션 구현
+- **서버 컴포넌트를 통한 렌더링 구조 최적화**  
+  정적 페이지 생성을 고려한 효율적인 콘텐츠 구성 방식 설계
+- **마이크로 인터랙션 구현**  
+  텍스트 회전, 손 흔들기, 마우스트래킹 명함 등 주목도 높은 인터랙션 효과를 통해 사용자 경험 강화
+- **전체 UI/UX 디자인 및 반응형 레이아웃 구현**  
+  다양한 화면 크기에서도 일관된 사용자 경험을 제공할 수 있도록 개발
 
 ## Improvements
 

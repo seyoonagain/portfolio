@@ -1,7 +1,8 @@
 ---
 title: 하쿠나마타타로
 team: true
-description: AI 타로 연애 상담 서비스
+tab: 하쿠나마타타로
+description: 연애 고민을 위한 AI 타로 상담 서비스
 startedAt: 2025-01-17
 endedAt: 2025-02-25
 techStack:
@@ -9,11 +10,15 @@ techStack:
 github: https://github.com/tataro-project/Tataro-FE
 demo: https://tataro.site
 image: /projects/tatarot.png
+isDone: true
 ---
 
 ## Responsibilities
 
-- NextAuth를 이용한 OAuth 로그인 구현 및 토큰 관리
+- **NextAuth를 활용한 로그인 세션 및 토큰 상태 관리**  
+  백엔드 OAuth API와 연동하여, NextAuth를 통해 로그인 세션 유지 및 액세스 토큰 관리
+- **웹 접근성 기준을 반영한 팝업 시스템 개발**  
+  `role="dialog"`, `aria-modal`, 포커스트랩 등 웹 접근성 속성을 적용하여 팝업의 접근성과 사용성을 개선
 
 ## Improvements
 

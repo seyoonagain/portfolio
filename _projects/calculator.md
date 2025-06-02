@@ -1,13 +1,15 @@
 ---
-title: 계산기
+title: Macintosh 계산기
 team: false
-description: Macintosh 계산기
+tab: 계산기
+description: Macintosh Desktop UI를 구현한 계산기
 startedAt: 2024-09-25
 endedAt: 2024-09-30
 techStack: ['JavaScript', 'HTML', 'CSS']
 github: https://github.com/seyoonagain/calculator
 demo: https://macintosh-calculator.netlify.app
 image: /projects/calculator.png
+isDone: true
 ---
 
 ## Responsibilities

@@ -2,6 +2,7 @@ export type Project = {
   slug: string;
   title: string;
   team: boolean;
+  tab: string;
   description: string;
   startedAt: string;
   endedAt: string;
@@ -10,4 +11,5 @@ export type Project = {
   demo: string;
   content: string;
   image: string;
+  isDone: boolean;
 };
