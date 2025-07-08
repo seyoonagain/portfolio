@@ -59,12 +59,11 @@ const useWindowStore = create<WindowState & WindowActions>()((set, get) => ({
     const { activeWindow, prevActiveWindows } = get();
 
     if (activeWindow === title) {
-      zIndex = 50;
-    } else if (prevActiveWindows.at(-1) === title) {
-      zIndex = 30;
+      zIndex = 10 + get().windowsOpen.length * 10;
     } else {
-      zIndex = 10;
+      zIndex = 10 + prevActiveWindows.findIndex(window => window === title) * 10;
     }
+
     return zIndex;
   },
 }));
